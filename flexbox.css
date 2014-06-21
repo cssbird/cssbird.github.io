@@ -42,6 +42,7 @@ footer	{
 	min-height: 50px;
 	margin: 3px;
 	padding: 3px;
+	text-align:center;
 }
 /* When the page is resized, use the styles below */
 @media all and (max-width: 640px) {
@@ -62,12 +63,12 @@ footer	{
 	aside {
 		min-height: 50px;
 		/* Specifying the order so the nav appears as the second item in the flex container */
-		order: 2;
+		order: 3;
 	}		
 	#content {
 		/* Specifying the order so the nav appears as the third item in the flex container */
 		min-height: 725px;
-		order: 3;
+		order: 2;
 	}
 	footer {
 		min-height: 25px;
