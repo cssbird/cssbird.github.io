@@ -30,6 +30,10 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
 <!-- 让屏幕宽度等于设备宽度，缩放为100% -->
 
 <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta content="email=no" name="format-detection" />
 <!-- 屏幕查询适配开始 -->
 <style>
     body{
@@ -93,7 +97,7 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
     }
     #mobile-logo{
         color: #fff;
-        flex:6;
+        flex:8;
         font-size: 18px;
     }
     #mobile-show-menu-button{
@@ -104,11 +108,13 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
         overflow: hidden;
     }
     #mobile-show-menu-button:hover{
+        /*
         background:url(http://img.bjnews.com.cn/site_v3/icon.png) -53px -87px no-repeat;
         width: 50px;
         height: 50px;
         overflow: hidden;
         cursor: pointer;
+        */
     }
     .nav{
         width: 100%;
@@ -544,11 +550,13 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
                 document.getElementById("mobile-show-menu-button").setAttribute("open","ok");
 
                 document.getElementById("main").style.paddingTop="175px";
+                document.getElementById("mobile-show-menu-button").style.background="url(http://img.bjnews.com.cn/site_v3/icon.png) -53px -87px no-repeat";
 
             }else{
                 document.getElementById("menu").style.display="none";
                 document.getElementById("mobile-show-menu-button").setAttribute("open","null");
                 document.getElementById("main").style.paddingTop="60px";
+                document.getElementById("mobile-show-menu-button").style.background="url(http://img.bjnews.com.cn/site_v3/icon.png) 0px -87px no-repeat";
             }
 
         },false);
