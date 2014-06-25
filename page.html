@@ -166,8 +166,7 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
         max-width: 100%;
     }
     .nright img{
-        
-        resize:both;
+        width: 100%;
     }
     .nright .tjlist .t{
         width: 100%;
@@ -381,7 +380,7 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
                     <input type="text" class="zh" value="" id="cus"/><input type="password" class="pwd" id='cpwd'/>
                     <input type="button" class="d" value="登录" id="d"/>
                     <a href="#" class="d" target="_blank">注册</a> 
-                	<input type="button" class="tij d r" value="提交" name="nol" />    
+                    <input type="button" class="tij d r" value="提交" name="nol" />    
                 </div>
                 <div class="plog" id="clog" style="display:none;">
                     <p class="logd"> 您好，<span id="cuser"><a href="#" class="usr" id="cuser" target="_blank"></a></span> <span>|</span> <a class="look" href="#" target="_blank">查看全部评论</a> <span>|</span><span class="logout" id="clogout">退出</span>  <input type="button" class="tij d r" name="lo" value="提交" /></p>
@@ -403,7 +402,7 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
             原：<div class="rad">
         -->
         <div id="ad" class="rad">
-        	<!-- Bjnews2014_channelPage_BannerA -->
+            <!-- Bjnews2014_channelPage_BannerA -->
             <div id='div-gpt-ad-1399197260115-0' style='width:240px; height:160px;'>
             <script type='text/javascript'>
             googletag.cmd.push(function() { googletag.display('div-gpt-ad-1399197260115-0'); });
@@ -535,7 +534,7 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
 <script>
     /*测试用，获取屏幕的宽度*/
     //alert(window.screen.width);
-    document.getElementById("debugWidth").innerHTML=window.screen.width;
+    document.getElementById("debugWidth").innerHTML="["+window.screen.width+":"+document.body.clientWidth+"]";
     document.getElementById("mobile-show-menu-button").addEventListener(
         "click",function(){
             if(document.getElementById("mobile-show-menu-button").getAttribute("open")==null||document.getElementById("mobile-show-menu-button").getAttribute("open")=="null"){
