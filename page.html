@@ -505,7 +505,7 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
             国新办网备字[2006]7号&nbsp;&nbsp;
             广播电视节目制作经营许可证:(京)字第02592号&nbsp;&nbsp;京公网安备110402440031号<br>
             Copy Right ©    2004-2018 www.bjnews.com.cn All Rights Reserved&nbsp;&nbsp;&nbsp;
-            新京报社版权所有 未经许可不得转载 版权法律顾问律师 刘家辉 电话：62112060
+            新京报社版权所有 未经许可不得转载 版权法律顾问律师 刘家辉 电话：62112060 <span id="debugWidth"></span>
             <!--<script charset="utf-8" language="javascript" src="http://static.bjnews.com.cn/www/js/cnzz.js"></script>-->
             <!--
             <script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fba0e7859a57505c5640c98a3fa61b61d' type='text/javascript'%3E%3C/script%3E"));</script>
@@ -535,6 +535,7 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
 <script>
     /*测试用，获取屏幕的宽度*/
     //alert(window.screen.width);
+    document.getElementById("debugWidth").innerHTML=window.screen.width;
     document.getElementById("mobile-show-menu-button").addEventListener(
         "click",function(){
             if(document.getElementById("mobile-show-menu-button").getAttribute("open")==null||document.getElementById("mobile-show-menu-button").getAttribute("open")=="null"){
