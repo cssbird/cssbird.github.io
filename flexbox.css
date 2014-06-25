@@ -6,6 +6,10 @@ body {
 #flexContainer {
   /* Specifies that the contents will be laid out according to Flexbox rules. */
 	display: flex;
+	display: -webkit-box;
+        display: -moz-box;
+        display: -ms-box-flex;
+        display: -webkit-box-flex;
 } 
 header	{
 	background: #707070;
