@@ -10,6 +10,8 @@ body {
         display: -moz-box;
         display: -ms-box-flex;
         display: -webkit-box-flex;
+        /*justify-content: center;*/
+        flex-flow:row;/*从左到右排列*/
 } 
 header	{
 	background: #707070;
