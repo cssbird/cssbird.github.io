@@ -23,6 +23,9 @@ nav {
 	background: #C9BFBF;
 	/* Shorthand property specifying flex-grow, flex-shrink, and flex-basis. */
 	flex: 1 1 15%;
+	-ms-flex:1 1 15%;
+	-moz-flex:1 1 15%;
+	-webkit-flex:1 1 15%;
 	min-width: 150px;
 	margin: 3px;
 	padding: 3px;
