@@ -69,6 +69,10 @@ footer	{
 @media all and (max-width: 640px) {
 	#flexContainer {
 		/* Shorthand property specifying flex-direction and flex-wrap */
+		-webkit-flex-flow: column wrap;
+		-moz-flex-flow: column wrap;
+		-webkit-flex-flow: column wrap;
+		-ms-flex-flow: column wrap;
 		flex-flow: column wrap;
 	}
 	
@@ -76,7 +80,7 @@ footer	{
 		min-height: 75px;
 	}
 	
-	nav	{
+	nav{
 		min-height: 50px;
 		/* Specifying the order so the nav appears as the first item in the flex container */
 		order: 1;
