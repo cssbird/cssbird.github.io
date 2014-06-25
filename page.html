@@ -80,6 +80,8 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
     #mobile-menu{
         width: 100%;
         display: flex;
+        height: 50px;
+        line-height: 50px;
     }
     #mobile-search-button{
         background:url(http://img.bjnews.com.cn/site_v3/icon.png) -891px 0px no-repeat;
@@ -96,7 +98,6 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
     }
     #mobile-show-menu-button{
         background:url(http://img.bjnews.com.cn/site_v3/icon.png) 0px -87px no-repeat;
-        flex:2;
         width: 50px;
         height: 50px;
         cursor: pointer;
@@ -104,9 +105,9 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
     }
     #mobile-show-menu-button:hover{
         background:url(http://img.bjnews.com.cn/site_v3/icon.png) -53px -87px no-repeat;
-        flex:2;
         width: 50px;
         height: 50px;
+        overflow: hidden;
         cursor: pointer;
     }
     .nav{
@@ -181,7 +182,8 @@ var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads
         padding:0px;
     }
     #dbnews .dbnews{
-        width: 100%;
+        width: 96%;
+        margin: 5px 0px 5px 0px;
         height: auto;
         padding: 0px;
         background:none;
