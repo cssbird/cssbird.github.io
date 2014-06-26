@@ -1328,7 +1328,7 @@ function cssbird_qrcode(){
 		      var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
 		      var maxPos = $chars.length;
 		      var pwd = '';
-		      for (i = 0; i < len; i++) {
+		      for (ii = 0; ii < len; ii++) {
 		        pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
 		      }
                     //
