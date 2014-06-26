@@ -34,6 +34,11 @@ header	{
         /*justify-content: center;*/
         flex-flow:row;/*从左到右排列*/
 }
+header h1{
+	width:80%;
+	height:100px;
+	margin:auto;
+}
 nav {
 	background: #C9BFBF;
 	/* Shorthand property specifying flex-grow, flex-shrink, and flex-basis. */
