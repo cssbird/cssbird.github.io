@@ -1323,7 +1323,16 @@ function cssbird_qrcode(){
                         //console.log(err);
                         qrcode_render = "table";
                     }
-                    divs[i].id=xjb.str.randStr(16);
+                    //
+                    len = len || 32;
+		      var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+		      var maxPos = $chars.length;
+		      var pwd = '';
+		      for (i = 0; i < len; i++) {
+		        pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+		      }
+                    //
+                    divs[i].id=pwd;
                     var text=divs[i].getAttribute('text');
                     var size=divs[i].getAttribute('size');
                     if(size==null){
