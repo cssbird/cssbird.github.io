@@ -79,10 +79,14 @@ footer	{
 	header {
 		min-height: 75px;
 		width:100%;
+		max-width:100%;
+		min-width:100%;
 	}
 	
 	nav{
 		width:100%;
+		max-width:100%;
+		min-width:100%;
 		min-height: 50px;
 		/* Specifying the order so the nav appears as the first item in the flex container */
 		-webkit-box-ordinal-group: 1;   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -93,6 +97,8 @@ footer	{
 	}
 	aside {
 		width:100%;
+		max-width:100%;
+		min-width:100%;
 		min-height: 50px;
 		/* Specifying the order so the nav appears as the second item in the flex container */
 		-webkit-box-ordinal-group: 3;   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -113,6 +119,8 @@ footer	{
 	}
 	footer {
 		width:100%;
+		max-width:100%;
+		min-width:100%;
 		min-height: 25px;
 	}
 }
