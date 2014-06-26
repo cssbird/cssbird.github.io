@@ -1324,7 +1324,7 @@ function cssbird_qrcode(){
                         qrcode_render = "table";
                     }
                     //
-                    len = len || 32;
+                    var len=32;
 		      var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
 		      var maxPos = $chars.length;
 		      var pwd = '';
