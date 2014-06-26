@@ -20,6 +20,8 @@ header	{
 	min-height: 100px;
 	margin: 3px;
 	padding: 3px;
+	font-family: Capture-it;
+	font-size: 8rem;
 }
 nav {
 	background: #C9BFBF;
