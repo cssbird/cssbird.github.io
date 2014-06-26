@@ -24,8 +24,7 @@ header	{
 	min-height: 100px;
 	margin: 3px;
 	padding: 3px;
-	font-family: Capture-it;
-	font-size: 8rem;
+	
 	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
         display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
         display: -ms-flexbox;      /* TWEENER - IE 10 */
@@ -38,6 +37,8 @@ header h1{
 	width:80%;
 	height:100px;
 	margin:auto;
+	font-family: Capture-it;
+	font-size: 4rem;
 }
 nav {
 	background: #C9BFBF;
