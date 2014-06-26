@@ -1332,7 +1332,7 @@ function cssbird_qrcode(){
 		        pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
 		      }
                     //
-                    divs[i].setAttribute("id",pwd);
+                    divs[i].id=pwd;
                     var text=divs[i].getAttribute('text');
                     var size=divs[i].getAttribute('size');
                     if(size==null){
