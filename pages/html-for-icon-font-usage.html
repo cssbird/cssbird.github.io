@@ -13,7 +13,7 @@
     font-weight: normal;
     font-style: normal;
   }
-  p:before{
+  p.f:before{
     font-family: 'designmodo';
         font-style: normal;
         speak: none;
@@ -26,6 +26,16 @@
         content: "\e006";
   }
   p:after{
+  	    font-family: 'designmodo';
+        font-style: normal;
+        speak: none;
+        font-weight: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: antialiased;
+        -ms-font-smoothing: antialiased;
+        -o-font-smoothing: antialiased;
+        font-size: 16px !important;
+        content: "\e005";
   }
 	</style>
 </head>
@@ -34,7 +44,7 @@
 	<section id="flexContainer">	
 		<nav>navigation</nav>
 		<section id="content">
-		  <p></p>
+		  <p class="f"></p>
 		</section>
 		<aside>aside</aside>
 	</section>
