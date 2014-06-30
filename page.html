@@ -22,6 +22,24 @@
     <script type='text/javascript' id='js1'>
         var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads=document.createElement('script');gads.async=true;gads.type='text/javascript';var useSSL='https:'==document.location.protocol;gads.src=(useSSL?'https:':'http:')+'//www.googletagservices.com/tag/js/gpt.js';var node=document.getElementsByTagName('script')[0];node.parentNode.insertBefore(gads,node)})();googletag.cmd.push(function(){googletag.defineSlot('/4853949/Bjnews2014_channelPage_BannerA',[240,160],'div-gpt-ad-1399197260115-0').addService(googletag.pubads());googletag.pubads().enableSingleRequest();googletag.enableServices()});
     </script>
+    <script>
+        /*js控制分享（#rsig）的位置*/
+        window.onresize=window.onload=function(){
+            if(document.body.clientWidth>1003){
+                //console.log(document.body.clientWidth);
+                //console.log(document.body.clientWidth*0.05);
+                document.getElementById("rsig").style.left=document.body.clientWidth-240-document.body.clientWidth*0.05-30+"px";
+            }else{
+                document.getElementById("rsig").style.left=document.body.clientWidth-240-document.body.clientWidth*0.02-30+"px";
+            }
+            if(document.body.clientWidth>=640){
+                document.getElementById("rsig").style.display="block";
+            }else{
+                document.getElementById("rsig").style.display="none";
+            }
+
+        }
+    </script>
     <!-- 响应式css 开始 暂时不写到css文件中去，为方便调试 -->
     <!-- 
         响应式布局 1.0 beta   目前支持设备 PC、 iphone 、 android 等小屏幕终端与PC端
@@ -136,6 +154,9 @@ font-style: normal;
         min-width: 240px;
         max-width: 240px;
         margin: 0px 0px 0px 40px;
+    }
+    #rsig{
+        display: none;
     }
 @media screen and (max-width: 640px){
     #header{
@@ -269,7 +290,9 @@ font-style: normal;
     .nleft{
         width: 100%;
     }
-    
+    .nleft #fontsize{
+        display: none;
+    }
     .nleft .content p span{
         /*图片下面的文字 在手机里左对齐*/
         text-align: left;
@@ -630,7 +653,8 @@ font-style: normal;
         <h1>你不知道的希腊：中国进口原油多半用希腊货船运输</h1>
         <dl class="ntit">
             <dd><span>分类：</span><em><a href="http://www.bjnews.com.cn/news/" target="_blank">国内</a></em><span class="date" id="pubtime_baidu">2014-06-20 02:30:28</span><span class="source" id="source_baidu">来源：<a href="http://www.bjnews.com.cn/news/2014/06/20/321701.html" target="_blank">新京报</a></span><span class="author" id="author_baidu"></span></dd>
-            <dt><span class="aj"></span><span class="ay"></span></dt>
+            <dt id="fontsize"><span class="aj"></span><span class="ay"></span></dt>
+            <!-- <dt><span class="aj"></span><span class="ay"></span></dt>  -->
         </dl>
         <div class="desc"><p class="ctdesc" id="daoy">国务院总理李克强于当地时间19日开始对希腊进行正式访问。历史证明，希腊是中国最可信赖的朋友之一。双方在海运领域的合作规模巨大--一半以上的中国进口原油和其他进口原材料通过希腊货船运输。</p></div>
         <div class="content">
