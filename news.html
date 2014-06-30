@@ -5,7 +5,9 @@
 <html>
 <!-- html5 标准文档格式结束 -->
 <head>
+    <!--把utf8放到前面 为了避免在网速慢的时候出现title为乱码-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>你不知道的希腊：中国进口原油多半用希腊货船运输_国内_新京报网</title>
     <meta name="description" content="新京报网以文字、图片、视频等全媒体形式，为用户提供全天候热点新闻，涵盖突发新闻、时事、财经、娱乐、体育，以及评论、杂志和博客等，新京报网本着品质源于责任的的信念,致力于成为用户喜爱的精品新闻网站。" />
     <meta name="keywords" content="希腊,李克强,访问" />
@@ -23,10 +25,15 @@
         var googletag=googletag||{};googletag.cmd=googletag.cmd||[];(function(){var gads=document.createElement('script');gads.async=true;gads.type='text/javascript';var useSSL='https:'==document.location.protocol;gads.src=(useSSL?'https:':'http:')+'//www.googletagservices.com/tag/js/gpt.js';var node=document.getElementsByTagName('script')[0];node.parentNode.insertBefore(gads,node)})();googletag.cmd.push(function(){googletag.defineSlot('/4853949/Bjnews2014_channelPage_BannerA',[240,160],'div-gpt-ad-1399197260115-0').addService(googletag.pubads());googletag.pubads().enableSingleRequest();googletag.enableServices()});
     </script>
     <script>
-        /*js控制分享（#rsig）的位置*/
+        /*
+        js控制分享（#rsig）的位置
+        算法：浏览器宽度-右边栏宽度-main的缩放
+        大于1003时，main是90%，而小于1003时，main是96%。
+        所以算法分为两种。
+        */
         window.onresize=window.onload=function(){
             if(document.body.clientWidth>1003){
-                console.log(document.body.clientWidth);
+                //console.log(document.body.clientWidth);
                 //console.log(document.body.clientWidth*0.05);
                 document.getElementById("rsig").style.left=document.body.clientWidth-240-document.body.clientWidth*0.05-30+"px";
             }else{
@@ -37,12 +44,11 @@
             }else{
                 document.getElementById("rsig").style.display="none";
             }
-
         }
     </script>
     <!-- 响应式css 开始 暂时不写到css文件中去，为方便调试 -->
     <!-- 
-        响应式布局 1.0 beta   目前支持设备 PC、 iphone 、 android 等小屏幕终端与PC端
+        响应式布局 1.5 beta   目前支持设备 PC、 iphone 、 android 等小屏幕终端与PC端
         @author gongwb
      -->
     <!-- 让屏幕宽度等于设备宽度，缩放为100% -->
@@ -53,7 +59,10 @@
     <meta content="email=no" name="format-detection" />
 <!-- 屏幕查询适配开始 -->
 <style>
-
+/*
+icon font
+使用字体来做icon 而不是图片背景
+*/
 @font-face {
 font-family: 'designmodo';
 src: url(data:font/woff;base64,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 ) format('woff'),
@@ -396,6 +405,9 @@ font-style: normal;
         height: auto;
         padding: 0px;
         background:none;
+    }
+    #ad{
+        width:240px;margin:0 auto;
     }
 }
 @media screen and (max-width: 568px){
