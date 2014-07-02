@@ -72,17 +72,21 @@ window.addEventListener('load', function(e){
     document.getElementById("pic").style.height=document.body.scrollHeight+"px"; 
     document.getElementById("mobile-canvas-bg").height=document.body.scrollHeight; 
     document.getElementById("mobile-canvas-mark").height=document.body.scrollHeight; 
-    img = new Image(); 
-    img.onload = function() {
-        stackBlurImage(img, "mobile-canvas-mark", 20, false );
-    } 
-    img.src=document.getElementById("pic").src;
+
     //
     var canvasBG=document.getElementById('mobile-canvas-bg');
     var ctxBG=canvasBG.getContext('2d');
 
     var canvasMark=document.getElementById('mobile-canvas-mark');
     var ctxMark=canvasMark.getContext('2d'); 
+    
+    
+    img = new Image(); 
+    img.onload = function() {
+        ctxBG.drawImage(this,0,0,canvasBG.width,canvasBG.height);
+        stackBlurImage(img, "mobile-canvas-mark", 20, false );
+    } 
+    img.src=document.getElementById("pic").src;
     //
      (function () {
     var takePicture = document.querySelector("#take-picture"),
@@ -114,7 +118,7 @@ window.addEventListener('load', function(e){
                     img.onload = function() {
                 
                         ctxBG.drawImage(this,0,0,canvasBG.width,canvasBG.height);
-                        console.log(canvasBG.toDataURL("image/png"));
+                        //console.log(canvasBG.toDataURL("image/png"));
                         stackBlurImage(img, "mobile-canvas-mark", 20, false );
                         /*
                         ctxMark.drawImage(this,0,0,canvasMark.width,canvasMark.height);
