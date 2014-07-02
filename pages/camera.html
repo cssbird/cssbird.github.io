@@ -76,47 +76,6 @@ window.addEventListener('load', function(e){
 
     var canvasMark=document.getElementById('mobile-canvas-mark');
     var ctxMark=canvasMark.getContext('2d'); 
-    img = new Image(); 
-    img.onload = function() {
-
-        ctxBG.drawImage(this,0,0,canvasBG.width,canvasBG.height);
-        console.log(canvasBG.toDataURL("image/png"));
-        stackBlurImage(img, "mobile-canvas-mark", 20, false );
-        /*
-        ctxMark.drawImage(this,0,0,canvasMark.width,canvasMark.height);
-        var imgData=ctxMark.getImageData(0,0,canvasMark.width,canvasMark.height);
-        var pix=imgData.data;
-        for(var i=0;i<pix.length;i+=4){
-            var r=pix[i];
-            var g=pix[i+1];
-            var b=pix[i+2];
-            var a=pix[i+3];
-            //ps code begin
-            //var grayscale = pix[i ] * .3 + pix[i+1] * .59 + pix[i+2] * .09;
-            //heibai Y = 0.299R + 0.587G + 0.114B
-            var grayscale = r* 0.3 + g* 0.59 + b * 0.09;
-            pix[i]*=4;
-            pix[i+1]*=4;
-            pix[i+2]*=4;
-            pix[i+3]=255;
-
-            //ps code end
-        }
-        ctxMark.clearRect(0,0,canvasMark.width,canvasMark.height);
-        ctxMark.putImageData(imgData,0,0);*/
-
-        //
-        window.addEventListener('touchmove', function(e){ 
-            //alert(e.changedTouches[0].clientX);
-            //alert(e.changedTouches[0].clientY);
-            ctxMark.clearRect(e.changedTouches[0].clientX-50,e.changedTouches[0].clientY-50,40,40);
-            e.preventDefault();
-        }, false);
-        
-        //
-
-    } 
-    img.src=document.getElementById("pic").src;
     //
      (function () {
     var takePicture = document.querySelector("#take-picture"),
@@ -143,7 +102,49 @@ window.addEventListener('load', function(e){
                     // Set img src to ObjectURL
                     showPicture.src = imgURL;
 
-
+                    //
+                     img = new Image(); 
+                    img.onload = function() {
+                
+                        ctxBG.drawImage(this,0,0,canvasBG.width,canvasBG.height);
+                        console.log(canvasBG.toDataURL("image/png"));
+                        stackBlurImage(img, "mobile-canvas-mark", 20, false );
+                        /*
+                        ctxMark.drawImage(this,0,0,canvasMark.width,canvasMark.height);
+                        var imgData=ctxMark.getImageData(0,0,canvasMark.width,canvasMark.height);
+                        var pix=imgData.data;
+                        for(var i=0;i<pix.length;i+=4){
+                            var r=pix[i];
+                            var g=pix[i+1];
+                            var b=pix[i+2];
+                            var a=pix[i+3];
+                            //ps code begin
+                            //var grayscale = pix[i ] * .3 + pix[i+1] * .59 + pix[i+2] * .09;
+                            //heibai Y = 0.299R + 0.587G + 0.114B
+                            var grayscale = r* 0.3 + g* 0.59 + b * 0.09;
+                            pix[i]*=4;
+                            pix[i+1]*=4;
+                            pix[i+2]*=4;
+                            pix[i+3]=255;
+                
+                            //ps code end
+                        }
+                        ctxMark.clearRect(0,0,canvasMark.width,canvasMark.height);
+                        ctxMark.putImageData(imgData,0,0);*/
+                
+                        //
+                        window.addEventListener('touchmove', function(e){ 
+                            //alert(e.changedTouches[0].clientX);
+                            //alert(e.changedTouches[0].clientY);
+                            ctxMark.clearRect(e.changedTouches[0].clientX-50,e.changedTouches[0].clientY-50,40,40);
+                            e.preventDefault();
+                        }, false);
+                        
+                        //
+                
+                    } 
+                    img.src=document.getElementById("pic").src;
+                    //
                     // Revoke ObjectURL
                     URL.revokeObjectURL(imgURL);
                 }
