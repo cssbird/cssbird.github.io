@@ -61,12 +61,7 @@
 //ctx.fillStyle = 'rgba(22,22,22,0.2)'; 
 //ctx.fillRect(0,0,150,150);
 
-window.addEventListener('touchmove', function(e){ 
-                            //alert(e.changedTouches[0].clientX);
-                            //alert(e.changedTouches[0].clientY);
-            ctxMark.clearRect(e.changedTouches[0].clientX-50,e.changedTouches[0].clientY-50,40,40);
-            e.preventDefault();
-        }, false);
+
 
 
 window.addEventListener('load', function(e){ 
@@ -79,11 +74,11 @@ window.addEventListener('load', function(e){
     document.getElementById("mobile-canvas-mark").height=document.body.scrollHeight; 
 
     //
-    var canvasBG=document.getElementById('mobile-canvas-bg');
-    var ctxBG=canvasBG.getContext('2d');
+    canvasBG=document.getElementById('mobile-canvas-bg');
+    ctxBG=canvasBG.getContext('2d');
 
-    var canvasMark=document.getElementById('mobile-canvas-mark');
-    var ctxMark=canvasMark.getContext('2d'); 
+    canvasMark=document.getElementById('mobile-canvas-mark');
+    ctxMark=canvasMark.getContext('2d'); 
     
     
     img = new Image(); 
@@ -190,5 +185,11 @@ window.addEventListener('load', function(e){
                // document.getElementById("mobile-canvas").width=document.body.scrollWidth;
                 //document.getElementById("mobile-canvas").height=document.body.scrollHeight;
         },false);
+        window.addEventListener('touchmove', function(e){ 
+                            //alert(e.changedTouches[0].clientX);
+                            //alert(e.changedTouches[0].clientY);
+            ctxMark.clearRect(e.changedTouches[0].clientX-50,e.changedTouches[0].clientY-50,40,40);
+            e.preventDefault();
+        }, false);
         
 </script>
