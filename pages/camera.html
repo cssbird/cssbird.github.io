@@ -72,6 +72,8 @@ window.addEventListener('load', function(e){
     document.getElementById("pic").style.height=document.body.scrollHeight+"px"; 
     document.getElementById("mobile-canvas-bg").height=document.body.scrollHeight; 
     document.getElementById("mobile-canvas-mark").height=document.body.scrollHeight; 
+    
+    stackBlurImage(img, "mobile-canvas-mark", 20, false );
     //
     var canvasBG=document.getElementById('mobile-canvas-bg');
     var ctxBG=canvasBG.getContext('2d');
