@@ -115,7 +115,8 @@ window.addEventListener('load', function(e){
                     //
                     img = new Image(); 
                     img.onload = function() {
-                
+                        ctxBG.clearRect(0,0,canvasMark.width,canvasMark.height);
+                        ctxMark.clearRect(0,0,canvasMark.width,canvasMark.height);
                         ctxBG.drawImage(this,0,0,canvasBG.width,canvasBG.height);
                         //console.log(canvasBG.toDataURL("image/png"));
                         stackBlurImage(img, "mobile-canvas-mark", 20, false );
