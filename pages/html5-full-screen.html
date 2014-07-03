@@ -19,6 +19,41 @@
                 if (sheet.addRule) return sheet.addRule(selector, styles);
             } 
             //
+            var addfullScreenMode=function(obj){
+                /*
+                objID 添加点击后 全屏和取消全屏
+                */
+                obj.style.cursor="pointer";
+                obj.onclick = function() {
+                    var pfx = ["webkit", "moz", "ms", "o", ""];
+                    function RunPrefixMethod(obj, method) { 
+            
+                        var p = 0, m, t;
+                        while (p < pfx.length && !obj[m]) {
+                            m = method;
+                            if (pfx[p] == "") {
+                                m = m.substr(0,1).toLowerCase() + m.substr(1);
+                            }
+                            m = pfx[p] + m;
+                            t = typeof obj[m];
+                            if (t != "undefined") {
+                                pfx = [pfx[p]];
+                                return (t == "function" ? obj[m]() : obj[m]);
+                            }
+                            p++;
+                        }
+                    }
+                    //
+                    if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
+                        obj.setAttribute("data-width","none");
+                        RunPrefixMethod(document, "CancelFullScreen");
+                    }else {
+                        obj.setAttribute("data-width","100");
+                        addRule("[data-width='100']","width:"+window.screen.width+"px");
+                        RunPrefixMethod(this, "RequestFullScreen");
+                    }
+                }
+            //
         })();
     },false);
     </script>
