@@ -12,8 +12,13 @@
     window.addEventListener("load",function(){
         (function(){
             //
-            alert(0);
-            
+            var addRule =function (selector, styles) {
+                var sheet=document.styleSheets[document.styleSheets.length - 1];
+                if(!sheet) return;
+                if (sheet.insertRule) return sheet.insertRule(selector + " {" + styles + "}", sheet.cssRules.length);
+                if (sheet.addRule) return sheet.addRule(selector, styles);
+            } 
+            //
         })();
     },false);
     </script>
