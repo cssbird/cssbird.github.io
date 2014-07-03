@@ -19,17 +19,21 @@
         }
         #mobile-canvas-bg{
             left: 0px;
-            top: 30px;
+            top: 50px;
             width: 100%;
             position:fixed;
             z-index: 0;
         }
         #mobile-canvas-mark{
             left: 0px;
-            top: 30px;
+            top: 50px;
             width: 100%;
             position:fixed;
             z-index: 999;
+        }
+        #file{
+            width:100%;
+            height:50px;
         }
         .blur{    
             -webkit-filter: blur(10px); /* Chrome, Opera */
@@ -55,11 +59,11 @@
 window.addEventListener('load', function(e){ 
     //
     document.getElementById("wrap").style.width=window.screen.width+"px"; 
-    document.getElementById("wrap").style.height=window.screen.height+"px"; 
+    document.getElementById("wrap").style.height=window.screen.height-50+"px"; 
     document.getElementById("pic").style.width=window.screen.width+"px"; 
-    document.getElementById("pic").style.height=window.screen.height+"px"; 
-    document.getElementById("mobile-canvas-bg").height=window.screen.height;
-    document.getElementById("mobile-canvas-mark").height=window.screen.height;
+    document.getElementById("pic").style.height=window.screen.height-50+"px"; 
+    document.getElementById("mobile-canvas-bg").height=window.screen.height-50;
+    document.getElementById("mobile-canvas-mark").height=window.screen.height-50;
     //
     canvasBG=document.getElementById('mobile-canvas-bg');
     ctxBG=canvasBG.getContext('2d');
