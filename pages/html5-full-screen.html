@@ -9,7 +9,60 @@
     <meta content="telephone=no" name="format-detection" />
     <meta content="email=no" name="format-detection" />
     <script>
-    
+    window.addEventListener("load",function(){
+        (function(){
+            //
+            var addRule =function (selector, styles) {
+                var sheet=document.styleSheets[document.styleSheets.length - 1];
+                if(!sheet) return;
+                if (sheet.insertRule) return sheet.insertRule(selector + " {" + styles + "}", sheet.cssRules.length);
+                if (sheet.addRule) return sheet.addRule(selector, styles);
+            } 
+            var addfullScreenMode=function(obj){
+                /*
+                objID 添加点击后 全屏和取消全屏
+                */
+                //
+                obj.style.cursor="pointer";
+                obj.onclick = function() {
+                    //
+                    
+                    //alert(this.src);
+                    var pfx = ["webkit", "moz", "ms", "o", ""];
+                    function RunPrefixMethod(obj, method) { 
+            
+                        var p = 0, m, t;
+                        while (p < pfx.length && !obj[m]) {
+                            m = method;
+                            if (pfx[p] == "") {
+                                m = m.substr(0,1).toLowerCase() + m.substr(1);
+                            }
+                            m = pfx[p] + m;
+                            t = typeof obj[m];
+                            if (t != "undefined") {
+                                pfx = [pfx[p]];
+                                return (t == "function" ? obj[m]() : obj[m]);
+                            }
+                            p++;
+                        }
+                    }
+                    //
+                    if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
+                        obj.setAttribute("data-width","none");
+                        RunPrefixMethod(document, "CancelFullScreen");
+                    }else {
+                        obj.setAttribute("data-width","100");
+                        addRule("[data-width='100']","width:"+window.screen.width+"px");
+                        RunPrefixMethod(this, "RequestFullScreen");
+                    }
+                }
+            //
+            var images=document.getElementsByTagName("img");
+            for (var i = images.length - 1; i >= 0; i--) {
+                addfullScreenMode(images[i]);
+            };
+        })();
+    },false);
     </script>
     <style>
         *{
