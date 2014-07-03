@@ -52,18 +52,6 @@
 </body>
 </html>
 <script type="text/javascript">
-
-
-//ctx.fillStyle='#FF0000';
-//ctx.fillStyle = 'rgba(225,225,225,0.5)'; 
-//ctx.globalAlpha=0.5;  
-//ctx.fillRect(0,0,canvas.width,canvas.height);
-//ctx.fillStyle = 'rgba(22,22,22,0.2)'; 
-//ctx.fillRect(0,0,150,150);
-
-
-
-
 window.addEventListener('load', function(e){ 
     //
     document.getElementById("wrap").style.width=window.screen.width+"px"; 
@@ -75,6 +63,8 @@ window.addEventListener('load', function(e){
     //
     canvasBG=document.getElementById('mobile-canvas-bg');
     ctxBG=canvasBG.getContext('2d');
+    ctxBG.width=window.screen.width;
+    ctxBG.height=window.screen.height;
 
     canvasMark=document.getElementById('mobile-canvas-mark');
     ctxMark=canvasMark.getContext('2d'); 
