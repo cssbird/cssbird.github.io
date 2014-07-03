@@ -63,13 +63,8 @@ window.addEventListener('load', function(e){
     //
     canvasBG=document.getElementById('mobile-canvas-bg');
     ctxBG=canvasBG.getContext('2d');
-    ctxBG.width=window.screen.width;
-    ctxBG.height=window.screen.height;
-
     canvasMark=document.getElementById('mobile-canvas-mark');
     ctxMark=canvasMark.getContext('2d'); 
-    
-    
     img = new Image(); 
     img.onload = function() {
         ctxBG.drawImage(this,0,0,canvasBG.width,canvasBG.height);
@@ -80,8 +75,6 @@ window.addEventListener('load', function(e){
      (function () {
     var takePicture = document.querySelector("#take-picture"),
         showPicture = document.querySelector("#pic");
-
-
     if (takePicture && showPicture) {
         // Set events
         takePicture.onchange = function (event) {
@@ -93,16 +86,9 @@ window.addEventListener('load', function(e){
                 try {
                     // Get window.URL object
                     var URL = window.URL || window.webkitURL;
-
-
-                    // Create ObjectURL
                     var imgURL = URL.createObjectURL(file);
-
-
-                    // Set img src to ObjectURL
                     showPicture.src = imgURL;
 
-                    //
                     img = new Image(); 
                     img.onload = function() {
                         ctxBG.clearRect(0,0,canvasMark.width,canvasMark.height);
@@ -110,38 +96,8 @@ window.addEventListener('load', function(e){
                         ctxBG.drawImage(this,0,0,canvasBG.width,canvasBG.height);
                         //console.log(canvasBG.toDataURL("image/png"));
                         stackBlurImage(img, "mobile-canvas-mark", 20, false );
-                        /*
-                        ctxMark.drawImage(this,0,0,canvasMark.width,canvasMark.height);
-                        var imgData=ctxMark.getImageData(0,0,canvasMark.width,canvasMark.height);
-                        var pix=imgData.data;
-                        for(var i=0;i<pix.length;i+=4){
-                            var r=pix[i];
-                            var g=pix[i+1];
-                            var b=pix[i+2];
-                            var a=pix[i+3];
-                            //ps code begin
-                            //var grayscale = pix[i ] * .3 + pix[i+1] * .59 + pix[i+2] * .09;
-                            //heibai Y = 0.299R + 0.587G + 0.114B
-                            var grayscale = r* 0.3 + g* 0.59 + b * 0.09;
-                            pix[i]*=4;
-                            pix[i+1]*=4;
-                            pix[i+2]*=4;
-                            pix[i+3]=255;
-                
-                            //ps code end
-                        }
-                        ctxMark.clearRect(0,0,canvasMark.width,canvasMark.height);
-                        ctxMark.putImageData(imgData,0,0);*/
-                
-                        //
-                        
-                        
-                        //
-                
                     } 
                     img.src=document.getElementById("pic").src;
-                    //
-                    // Revoke ObjectURL
                     URL.revokeObjectURL(imgURL);
                 }
                 catch (e) {
