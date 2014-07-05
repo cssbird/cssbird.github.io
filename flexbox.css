@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Capture-it';
-  src: url('fonts/Capture_it.ttf') format('truetype');
+  src: url('http://static.incompl.com/awful/fonts/Capture_it.ttf') format('truetype');
 }
 body {
 	font-family: Arial, Helvetica, Sans-Serif;
@@ -85,7 +85,6 @@ footer	{
 	margin: 3px;
 	padding: 3px;
 	text-align:center;
-	line-height:50px;
 }
 /* When the page is resized, use the styles below */
 @media all and (max-width: 640px) {
