@@ -39,14 +39,6 @@ header h1{
 	margin:auto;
 	font-family: Capture-it;
 	font-size: 4rem;
-	-webkit-transition: -webkit-transform 0.5s ease-out; 
-	-moz-transition: -moz-transform 0.5s ease-out; 
-	transition: transform 0.5s ease-out; 
-}
-header h1:hover{
-		-webkit-transform: rotate(180deg);
-		-moz-transform: rotate(180deg); 
-		transform: rotate(180deg); 
 }
 nav {
 	background: #C9BFBF;
