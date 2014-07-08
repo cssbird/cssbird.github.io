@@ -2,6 +2,10 @@
   font-family: 'Capture-it';
   src: url('fonts/Capture_it.ttf') format('truetype');
 }
+*{
+	margin:0;
+	padding:0;
+}
 body {
 	font-family: Arial, Helvetica, Sans-Serif;
 	font-size: 20px;
