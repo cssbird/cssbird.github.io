@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="transform:translate水平垂直居中法" />
+  <meta charset="utf-8">
+  <title>transform:translate水平垂直居中法</title>
+  <style>
+  *{
+  margin:0;
+  padding:0;
+  line-height:1;
+}
+.align-wrap{
+  position:relative;
+  height:300px;
+  width:300px;
+  overflow:hidden;
+  border:3px solid #999;
+}
+.align{
+  position:absolute;
+  top:50%;
+  left:50%;
+  -moz-transform:translate(-50%,-50%);
+  -webkit-transform:translate(-50%,-50%);
+  -o-transform:translate(-50%,-50%);
+  transform:translate(-50%,-50%);
+}
+  </style>
+</head>
+<body>
+  <div class="align-wrap">
+      <div class="align">
+        <img src="http://image.cn.made-in-china.com/2f1j01MCUQjerchkuW/%E9%80%9F%E6%BA%B6%E9%BA%A6%E9%A6%99%E5%A5%B6%E8%8C%B6%E7%B2%89-200kg.jpg" >
+      </div>
+  </div>
+</body>
+</html>
