@@ -13,6 +13,9 @@ body {
 	zoom:1;
 	font-family: Museo, georgia, serif;
 }
+a,a:link,a:hover,a:active{
+	text-decoration: none;
+}
 #flexContainer {
   /* Specifies that the contents will be laid out according to Flexbox rules. */
 	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
