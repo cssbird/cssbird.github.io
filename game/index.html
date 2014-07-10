@@ -4,6 +4,10 @@
 	<meta charset="UTF-8">
 	<title>demo</title>
 	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
 		#wrap{
 
 		}
@@ -12,12 +16,88 @@
 			height: 30px;
 			border-radius: 30px;
 			background: #f00;
+			display:none;
 		}
 	</style>
+	<script type="text/javascript">
+		window.addEventListener("load",function(){
+			var canvas=document.getElementById('myCanvas');
+			canvas.width=window.screen.width;
+			canvas.height=window.screen.height;
+			canvas.top=0;
+			canvas.left=0;
+			var c=canvas.getContext('2d');
+
+			var showPlayer=function(){
+				var px=100;
+				var py=100;
+				playerToUp=function(){
+					py-=10;
+				}
+				playerToDown=function(){
+					py+=10;
+				}
+				playerToRight=function(){
+					px+=10;
+				}
+				playerToLeft=function(){
+					px-=10;
+				}
+				function r(){
+					console.log(px);
+					c.clearRect(0,0,canvas.width,canvas.height);
+					c.fillStyle="#FF0000";
+					c.beginPath();
+					c.arc(px,py,15,0,Math.PI*2,true);
+					c.closePath();
+					c.fill();
+				}
+				return r;
+			}
+			
+			showPlayer=showPlayer();
+			showPlayer();
+			document.addEventListener("keypress",function (e) {
+				// body...
+				var keyCode = 0;
+				var e = e || window.event;
+				keyCode = e.keyCode || e.which || e.charCode;
+				//alert(keyCode);
+				if(keyCode==109){
+					//w
+				}
+				if(keyCode==115){
+					//s
+					playerToDown();
+					showPlayer();
+				}
+				if(keyCode==97){
+					//a
+					playerToLeft();
+					showPlayer();
+				}
+				if(keyCode==100){
+					//d
+					playerToRight();
+					showPlayer();
+				}
+				if(keyCode==119){
+					//w
+					playerToUp();
+					showPlayer();
+				}
+				if(keyCode==32){
+					//fire
+				}
+				//
+			},false);
+		},false);
+	</script>
 </head>
 <body>
 	<div id="wrap">
 		<div id="player"></div>
+		<canvas id="myCanvas"></canvas>
 	</div>
 </body>
 </html>
