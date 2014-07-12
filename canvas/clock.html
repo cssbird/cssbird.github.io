@@ -39,49 +39,63 @@
 
 			
 			(function(){
-						c.beginPath();
-						c.lineWidth = 2;  
-			            c.strokeStyle = "red";  
-			            c.fillStyle = "red";  
-			            c.arc(canvas.width/2,canvas.height/2,165,0,Math.PI*2,true);  
-						c.stroke();
-						//
-						c.beginPath();
-						c.lineWidth = 2;  
-			            c.strokeStyle = "red";  
-			            c.fillStyle = "red";  
-			            c.arc(canvas.width/2,canvas.height/2,5,0,Math.PI*2,true);  
-			            c.fill();
-						c.stroke();
-						c.translate(canvas.width/2,canvas.height/2);
-							var line=0;	
-							for (var i=0;i<60;i++){		
-								c.lineWidth=1;
+				c.beginPath();
+				c.lineWidth = 2;  
+			    c.strokeStyle = "red";  
+			    c.fillStyle = "red";  
+			    c.arc(canvas.width/2,canvas.height/2,165,0,Math.PI*2,true);  
+				c.stroke();
+				c.beginPath();
+				c.lineWidth = 2;  
+			    c.strokeStyle = "red";  
+			    c.fillStyle = "red";  
+			    c.arc(canvas.width/2,canvas.height/2,5,0,Math.PI*2,true);  
+			    c.fill();
+				c.stroke();
+				c.translate(canvas.width/2,canvas.height/2);
+				var line=0;	
+				for (var i=0;i<60;i++){		
+					c.lineWidth=1;
+					line++;
+					if(line==5){
+						c.lineWidth=3;
+						line=0;
+					}
+				    c.rotate(Math.PI*6/180);
+				    c.strokeStyle = "red";
+				    c.beginPath();
+				    c.moveTo(0,150);  
+				    c.lineTo(0,160); 
+				    c.stroke();
+			    }
+				c.translate(-canvas.width/2,-canvas.height/2);
+			})();
 
-								line++;
-								if(line==5){
-									c.lineWidth=3;
-									line=0;
-								}
-							    c.rotate(Math.PI*6/180);
-							    c.strokeStyle = "red";
-							    c.beginPath();
-							    c.moveTo(0,150);  
-							    c.lineTo(0,160); 
-							    c.stroke();
-						    }
-						c.translate(-canvas.width/2,-canvas.height/2);
+			(function(){		
+				c3.font="40px Arial";
+				c3.strokeStyle = "red";
+				c3.clearRect(0,0,canvas.width,canvas.height);
+				c3.translate(canvas.width/2,canvas.height/2);
+				var s=new Date().getSeconds();
+				c2.clearRect(0,0,canvas.width,canvas.height);
+				c2.translate(canvas.width/2,canvas.height/2);
+		        c2.rotate(Math.PI*186*(s)/180);
+		        c2.beginPath();
+		        c2.strokeStyle = "red";
+		        c2.lineWidth=1;
+		        c2.moveTo(0,0);  
+		        c2.lineTo(0,160);
+		        c2.stroke();
+		        c2.translate(-canvas.width/2,-canvas.height/2);
+				if(s<10){
+					s="0"+s;
+				}
+				c3.fillText(new Date().getHours()+":"+new Date().getMinutes()+":"+s,-75,-200);
+				c3.translate(-canvas.width/2,-canvas.height/2);
 			})();
 
 			(function(){
-				
-
 				setInterval(function(){
-				//setTimeout(function(){
-					
-					
-					//
-					//
 					(function(){		
 						c3.font="40px Arial";
 						c3.strokeStyle = "red";
@@ -94,15 +108,10 @@
 						c3.fillText(new Date().getHours()+":"+new Date().getMinutes()+":"+s,-75,-200);
 						c3.translate(-canvas.width/2,-canvas.height/2);
 					})();
-
-					
 					(function(){
 						c2.clearRect(0,0,canvas.width,canvas.height);
 						c2.translate(canvas.width/2,canvas.height/2);
-				        
-				        //c.rotate(0*Math.PI/180);
 				        c2.rotate(Math.PI*6/180);
-				        //Wc.restore();
 				        c2.beginPath();
 				        c2.strokeStyle = "red";
 				        c2.lineWidth=1;
@@ -110,13 +119,10 @@
 				        c2.lineTo(0,160);
 				        c2.stroke();
 				        c2.translate(-canvas.width/2,-canvas.height/2);
-				        //c.restore();
 			        })();
 
 				},1000);
 			})();
-
-			
 		},false);
 	</script>
 </head>
