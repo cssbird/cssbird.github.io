@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>clock</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		#wrap{
+
+		}
+		#player{
+			width: 30px;
+			height: 30px;
+			border-radius: 30px;
+			background: #f00;
+			display:none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.addEventListener("load",function(){
+			var canvas=document.getElementById('myCanvas');
+			canvas.width=window.screen.width;
+			canvas.height=window.screen.height;
+			canvas.top=0;
+			canvas.left=0;
+			var c=canvas.getContext('2d');
+
+			
+			(function(){
+				var r=0;
+				
+				
+				setInterval(function(){
+					
+					//
+
+					//
+					c.clearRect(0,0,canvas.width,canvas.height);
+					///
+					c.beginPath();
+					c.lineWidth = 2;  
+		            c.strokeStyle = "red";  
+		            c.fillStyle = "red";  
+		            c.arc(canvas.width/2,canvas.height/2,165,0,Math.PI*2,true);  
+					c.stroke();
+					//
+					c.beginPath();
+					c.lineWidth = 2;  
+		            c.strokeStyle = "red";  
+		            c.fillStyle = "red";  
+		            c.arc(canvas.width/2,canvas.height/2,5,0,Math.PI*2,true);  
+		            c.fill();
+					c.stroke();
+					//
+					c.fillText(r,canvas.width/2,100);
+					c.lineWidth=1;
+					r+=6;
+					c.save();
+					  
+			        
+			       
+			        c.translate(canvas.width/2,canvas.height/2);
+			        c.rotate(r*Math.PI/180); 
+			        c.beginPath();
+			        c.strokeStyle = "red";
+			        c.moveTo(0,0);  
+			        c.lineTo(0,160); 
+			        c.stroke();
+
+			        c.restore();
+					
+				},1000);
+			})();
+
+			
+		},false);
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<div id="player"></div>
+		<canvas id="myCanvas"></canvas>
+	</div>
+</body>
+</html>
