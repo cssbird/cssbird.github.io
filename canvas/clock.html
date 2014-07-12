@@ -13,6 +13,18 @@
 			left: 0;
 			top: 0;
 		}
+		#canvas2{
+			z-index: 999;
+		}
+		#canvas3,#canvas{
+			z-index: 0;
+		}
+		#canvas4{
+			z-index: 1;
+		}
+		#canvas5{
+			z-index: 2;
+		}
 	</style>
 	<script type="text/javascript">
 		window.addEventListener("load",function(){
@@ -45,13 +57,7 @@
 			    c.fillStyle = "red";  
 			    c.arc(canvas.width/2,canvas.height/2,165,0,Math.PI*2,true);  
 				c.stroke();
-				c.beginPath();
-				c.lineWidth = 2;  
-			    c.strokeStyle = "red";  
-			    c.fillStyle = "red";  
-			    c.arc(canvas.width/2,canvas.height/2,5,0,Math.PI*2,true);  
-			    c.fill();
-				c.stroke();
+				
 				c.translate(canvas.width/2,canvas.height/2);
 				var line=0;	
 				for (var i=0;i<60;i++){		
@@ -71,55 +77,96 @@
 				c.translate(-canvas.width/2,-canvas.height/2);
 			})();
 
-			(function(){		
-				c3.font="40px Arial";
-				c3.strokeStyle = "red";
-				c3.clearRect(0,0,canvas.width,canvas.height);
-				c3.translate(canvas.width/2,canvas.height/2);
-				var s=new Date().getSeconds();
-				c2.clearRect(0,0,canvas.width,canvas.height);
-				c2.translate(canvas.width/2,canvas.height/2);
-		        c2.rotate(Math.PI*186*(s)/180);
-		        c2.beginPath();
-		        c2.strokeStyle = "red";
-		        c2.lineWidth=1;
-		        c2.moveTo(0,0);  
-		        c2.lineTo(0,160);
-		        c2.stroke();
-		        c2.translate(-canvas.width/2,-canvas.height/2);
-				if(s<10){
-					s="0"+s;
-				}
-				c3.fillText(new Date().getHours()+":"+new Date().getMinutes()+":"+s,-75,-200);
-				c3.translate(-canvas.width/2,-canvas.height/2);
-			})();
+
 
 			(function(){
 				setInterval(function(){
-					(function(){		
-						c3.font="40px Arial";
-						c3.strokeStyle = "red";
-						c3.clearRect(0,0,canvas.width,canvas.height);
-						c3.translate(canvas.width/2,canvas.height/2);
-						var s=new Date().getSeconds();
-						if(s<10){
-							s="0"+s;
-						}
-						c3.fillText(new Date().getHours()+":"+new Date().getMinutes()+":"+s,-75,-200);
-						c3.translate(-canvas.width/2,-canvas.height/2);
-					})();
-					(function(){
-						c2.clearRect(0,0,canvas.width,canvas.height);
-						c2.translate(canvas.width/2,canvas.height/2);
-				        c2.rotate(Math.PI*6/180);
-				        c2.beginPath();
-				        c2.strokeStyle = "red";
-				        c2.lineWidth=1;
-				        c2.moveTo(0,0);  
-				        c2.lineTo(0,160);
-				        c2.stroke();
-				        c2.translate(-canvas.width/2,-canvas.height/2);
-			        })();
+					(function(){	
+					canvas2=document.getElementById('myCanvas2');
+					canvas2.width=window.screen.width;
+					canvas2.height=window.screen.height;
+					canvas2.top=0;
+					canvas2.left=0;
+					c2=canvas2.getContext('2d');
+
+					canvas5=document.getElementById('myCanvas5');
+					canvas5.width=window.screen.width;
+					canvas5.height=window.screen.height;
+					canvas5.top=0;
+					canvas5.left=0;
+					c5=canvas5.getContext('2d');
+
+					canvas4=document.getElementById('myCanvas4');
+					canvas4.width=window.screen.width;
+					canvas4.height=window.screen.height;
+					canvas4.top=0;
+					canvas4.left=0;
+					c4=canvas4.getContext('2d');
+
+					c3.font="40px Arial";
+					c3.strokeStyle = "red";
+					c3.clearRect(0,0,canvas.width,canvas.height);
+					c3.translate(canvas.width/2,canvas.height/2);
+					var h=new Date().getHours();
+					var s=new Date().getSeconds();
+					var m=new Date().getMinutes();
+					c2.clearRect(0,0,canvas.width,canvas.height);
+					c2.translate(canvas.width/2,canvas.height/2);
+			        c2.rotate(Math.PI*6*(s)/180);
+			        c2.rotate(Math.PI*6*30/180);
+			        c2.beginPath();
+			        c2.strokeStyle = "red";
+			        c2.lineWidth=1;
+			        c2.moveTo(0,0);  
+			        c2.lineTo(0,160);
+			        c2.stroke();
+			        c2.beginPath();
+			        c2.lineWidth = 2;  
+				    c2.strokeStyle = "red";  
+				    c2.fillStyle = "red";  
+				    c2.arc(0,0,5,0,Math.PI*2,true);  
+				    c2.fill();
+					c2.stroke();
+			        c2.translate(-canvas.width/2,-canvas.height/2);
+			        
+				
+
+			        c4.clearRect(0,0,canvas.width,canvas.height);
+					c4.translate(canvas.width/2,canvas.height/2);
+			        c4.rotate(Math.PI*6*(m)/180);
+			        c4.rotate(Math.PI*6*30/180);
+			        c4.beginPath();
+			        c4.strokeStyle = "blue";
+			        c4.lineWidth=2;
+			        c4.moveTo(0,0);  
+			        c4.lineTo(0,140);
+			        c4.stroke();
+			        c4.translate(-canvas.width/2,-canvas.height/2);
+
+			        c5.clearRect(0,0,canvas.width,canvas.height);
+					c5.translate(canvas.width/2,canvas.height/2);
+			        c5.rotate(Math.PI*6*(h*60*60)/180);
+			        //c5.rotate(Math.PI*6*30/180);
+			        c5.beginPath();
+			        c5.strokeStyle = "black";
+			        c5.lineWidth=3;
+			        c5.moveTo(0,0);  
+			        c5.lineTo(0,120);
+			        c5.stroke();
+			        c5.translate(-canvas.width/2,-canvas.height/2);
+
+			        if(h<10){
+						h="0"+h;
+					}
+			        if(m<10){
+						m="0"+m;
+					}
+					if(s<10){
+						s="0"+s;
+					}
+					c3.fillText(h+":"+m+":"+s,-75,-200);
+					c3.translate(-canvas.width/2,-canvas.height/2);
+				})();
 
 				},1000);
 			})();
@@ -129,8 +176,11 @@
 <body>
 	<div id="wrap">
 		<canvas id="myCanvas"></canvas>
-		<canvas id="myCanvas2"></canvas>
+		
 		<canvas id="myCanvas3"></canvas>
+		<canvas id="myCanvas4"></canvas>
+		<canvas id="myCanvas5"></canvas>
+		<canvas id="myCanvas2"></canvas>
 	</div>
 </body>
 </html>
