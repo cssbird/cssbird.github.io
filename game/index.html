@@ -18,37 +18,154 @@
 			background: #f00;
 			display:none;
 		}
+		#myCanvas2{
+			display: none;
+		}
 	</style>
 	<script type="text/javascript">
 		window.addEventListener("load",function(){
 			var canvas=document.getElementById('myCanvas');
 			canvas.width=window.screen.width;
 			canvas.height=window.screen.height;
+			//canvas.width=1024
+			canvas.height=600;
 			canvas.top=0;
 			canvas.left=0;
 			var c=canvas.getContext('2d');
+			//c.globalAlpha=0.9;
+			c.save();
+			//c.globalCompositeOperation = 'xor';
+			function cj(){  
+        		c.lineWidth = 3;  
+		        c.beginPath();  
+		        c.strokeStyle = "red";  
+		        c.moveTo(canvas.width/2,canvas.height/2-50);  
+		        c.lineTo(canvas.width,canvas.height/2-50); 
+		        c.lineTo(-canvas.width,canvas.height/2-50);    
+
+		       	c.moveTo(canvas.width/2,canvas.height/2+50);  
+		        c.lineTo(canvas.width,canvas.height/2+50); 
+		        c.lineTo(-canvas.width,canvas.height/2+50);  
+		        c.stroke();
+			}
+			function jc(){
+				c.globalCompositeOperation = 'xor';
+				var data = c.getImageData(getPlayerX(),getPlayerY(),getPlayerZJ(),getPlayerZJ()).data;
+				//c.fillRect(getPlayerX(),getPlayerY(),getPlayerZJ(),getPlayerZJ());
+				//c.globalCompositeOperation = 'xor';
+				//c.drawImage(data,10,10);
+				for(var i = 3; i < data.length; i += 4){
+					//console.log(data[i]);
+					
+               		if(data[i]==0&&playerdata[i]>0){
+               			c.font="40px Arial";
+						c.beginPath();
+						c.clearRect(100,100,90,90);
+						c.fillText("game over",110,150);
+						c.stroke();
+						c.globalCompositeOperation = 'source-over';
+						cj();
+						showPlayer();
+						gameover=true;
+               			break;
+               		}
+        		}
+				
+			}
+			function obj1(){
+
+			}
+			gameover=false;
+			(function(){
+				var r=10;
+
+				setInterval(function(){
+					if(!gameover){
+						c.clearRect(0,0,canvas.width,canvas.height);
+						cj();
+						showPlayer();
+
+						c.save();
+						r+=1;					
+						c.translate(canvas.width/2,canvas.height/2);
+						c.rotate(r*Math.PI/180);
+						c.beginPath();  
+				        c.strokeStyle = "red";  
+				   
+				        c.moveTo(0,0);  
+				        c.lineTo(0,40);
+				        c.lineTo(0,-40);  
+
+				        c.stroke();
+						c.restore();
+
+
+						c.save();
+						r+=1;					
+						c.translate(canvas.width/2-200,canvas.height/2);
+						c.rotate(r*Math.PI/180);
+						c.beginPath();  
+				        c.strokeStyle = "red";  
+				        c.moveTo(0,0);  
+				        c.lineTo(0,40);
+				        c.lineTo(0,-40);  
+				        c.stroke();
+						c.restore();
+
+						c.save();
+						r+=1;					
+						c.translate(canvas.width/2+200,canvas.height/2);
+						c.rotate(r*Math.PI/180);
+						c.beginPath();  
+				        c.strokeStyle = "red";  
+				        c.moveTo(0,0);  
+				        c.lineTo(0,40);
+				        c.lineTo(0,-40);  
+				        c.stroke();
+						c.restore();
+
+
+						jc();
+					}
+				},1000/24);
+			})();
 
 			var showPlayer=function(){
 				var px=100;
-				var py=100;
+				var py=canvas.height/2;
+				var speed=3;
+				var zj=15;//zhijing
+				resetPlayer=function(){
+					px=100;
+					py=canvas.height/2;
+				}
+				getPlayerX=function(){
+					return px-zj;
+				}
+				getPlayerY=function(){
+					return py-zj;
+				}
+				getPlayerZJ=function(){
+					return zj*2;
+				}
 				playerToUp=function(){
-					py-=10;
+					py-=speed;
 				}
 				playerToDown=function(){
-					py+=10;
+					py+=speed;
 				}
 				playerToRight=function(){
-					px+=10;
+					px+=speed;
 				}
 				playerToLeft=function(){
-					px-=10;
+					px-=speed;
 				}
 				function r(){
-					console.log(px);
-					c.clearRect(0,0,canvas.width,canvas.height);
+					//console.log(px);
+					//c.clearRect(0,0,canvas.width,canvas.height);
 					c.fillStyle="#FF0000";
 					c.beginPath();
-					c.arc(px,py,15,0,Math.PI*2,true);
+					c.arc(px,py,zj,0,Math.PI*2,true);
 					c.closePath();
 					c.fill();
 				}
@@ -57,34 +174,38 @@
 			
 			showPlayer=showPlayer();
 			showPlayer();
+
+			playerdata = c.getImageData(getPlayerX(),getPlayerY(),getPlayerZJ(),getPlayerZJ()).data;
+
 			document.addEventListener("keypress",function (e) {
 				// body...
 				var keyCode = 0;
 				var e = e || window.event;
 				keyCode = e.keyCode || e.which || e.charCode;
 				//alert(keyCode);
-				if(keyCode==109){
-					//w
+				if(keyCode==32){
+					resetPlayer();
+					gameover=false;
 				}
 				if(keyCode==115){
 					//s
 					playerToDown();
-					showPlayer();
+					//showPlayer();
 				}
 				if(keyCode==97){
 					//a
 					playerToLeft();
-					showPlayer();
+					//showPlayer();
 				}
 				if(keyCode==100){
 					//d
 					playerToRight();
-					showPlayer();
+					//showPlayer();
 				}
 				if(keyCode==119){
 					//w
 					playerToUp();
-					showPlayer();
+					//showPlayer();
 				}
 				if(keyCode==32){
 					//fire
