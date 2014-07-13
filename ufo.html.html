@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+<title>Document</title>
+	<style>
+	body{
+	}
+	</style>
+	<script>
+
+		window.onload=function(){
+			var canvas=document.getElementById('myCanvas');
+			//canvas.width=window.screen.width;
+			//canvas.height=window.screen.height;
+			canvas.width=document.body.scrollWidth;
+			canvas.height=document.body.scrollHeight;
+			canvas.top=0;
+			canvas.left=0;
+			var c=canvas.getContext('2d');
+
+			
+				document.addEventListener("keypress",function (e) {
+				// body...
+							var keyCode = 0;
+							var e = e || window.event;
+							keyCode = e.keyCode || e.which || e.charCode;
+							//alert(keyCode);
+							if(keyCode==109){
+								//w
+							}
+							if(keyCode==115){
+								//s
+								gameCtrl.down();
+								//showPlayer();
+							}
+							if(keyCode==97){
+								//a
+								gameCtrl.left();
+								//showPlayer();
+							}
+							if(keyCode==100){
+								//d
+								gameCtrl.right();
+								//showPlayer();
+							}
+							if(keyCode==119){
+								//w
+								gameCtrl.up();
+								//showPlayer();
+							}
+							if(keyCode==32){
+								//fire
+							}
+							//
+					},false);
+				window.addEventListener('touchstart', function(e){ 
+					var touchobj = e.changedTouches[0] // reference first touch point (ie: first finger) 
+					startx = parseInt(touchobj.clientX) // get x position of touch point relative to left edge of browser 
+					starty = parseInt(touchobj.clientY) // get x position of touch point relative to left edge of browser 
+					//statusdiv.innerHTML = 'Status: touchstart<br /> ClientX: ' + startx + 'px' 
+					e.preventDefault() 
+				}, false);
+
+				window.addEventListener('touchmove', function(e){ 
+					var touchobj = e.changedTouches[0] // reference first touch point for this event 
+					var distX = parseInt(touchobj.clientX) - startx; 
+					var distY = parseInt(touchobj.clientY) - starty; 
+
+					if(distX>0){
+						gameCtrl.right();
+					}
+					if(distX<0){
+						gameCtrl.left();
+					}
+					if(distY>0){
+						gameCtrl.down();
+					}
+					if(distY<0){
+						gameCtrl.up();
+					}
+					//gameCtrl.player.x+=distX;
+					//gameCtrl.player.y+=distY;
+
+					gameCtrl.display();
+
+					//statusdiv.innerHTML = 'Status: touchmove<br /> Horizontal distance traveled: ' + dist + 'px' 
+					e.preventDefault() 
+				}, false);
+
+				window.addEventListener('touchend', function(e){ 
+					var touchobj = e.changedTouches[0] // reference first touch point for this event 
+					//statusdiv.innerHTML = 'Status: touchend<br /> Resting x coordinate: ' + touchobj.clientX + 'px' 
+					e.preventDefault() 
+				}, false);
+
+			//c.globalCompositeOperation = 'xor';
+
+			var Game=function(){
+				
+			}
+			Game.prototype.display=function(){
+				
+			}
+			
+
+			function hit(SpriteA,SpriteB){
+				c.clearRect(0,0,canvas.width,canvas.height);
+				c.globalCompositeOperation = 'xor';
+				SpriteA.draw();
+				SpriteB.draw();
+
+				var data = c.getImageData(SpriteB.x,SpriteB.y,SpriteB.w,SpriteB.h).data;
+
+				c.clearRect(0,0,canvas.width,canvas.height);
+				c.globalCompositeOperation = 'source-over';
+				SpriteB.draw();
+
+				var data2 = c.getImageData(SpriteB.x,SpriteB.y,SpriteB.w,SpriteB.h).data;
+				for(var i = 3; i < data.length; i += 4){
+					gameCtrl.state="";
+					if(data[i]==0&&data2[i]>0){
+						gameCtrl.state="hited ! ";
+						
+						break;
+					}
+				}
+
+				c.clearRect(0,0,canvas.width,canvas.height);
+				gameCtrl.displayScene();
+				SpriteA.draw();
+				SpriteB.draw();
+				gameCtrl.alert();
+				//c.fillRect(SpriteB.x,SpriteB.y,SpriteB.w,SpriteB.h);
+
+			}
+
+			var GameCtrl=function(){
+				this.game=null;
+				this.player=null;
+			}
+			GameCtrl.prototype.loadGame=function(game){
+				this.game=game;
+			}
+			GameCtrl.prototype.setPlayer=function(player){
+				this.player=player;
+			}
+			GameCtrl.prototype.up=function(){
+				this.player.up();
+				this.display();
+			}
+			GameCtrl.prototype.down=function(){
+				this.player.down();
+				this.display();				
+			}
+			GameCtrl.prototype.left=function(){
+				this.player.left();
+				this.display();
+				
+			}
+			GameCtrl.prototype.right=function(){
+				this.player.right();
+				this.display();
+				
+			}
+			GameCtrl.prototype.display=function(){
+				hit(a,this.player);
+			}
+			GameCtrl.prototype.displayScene=function(){
+
+			}
+			GameCtrl.prototype.alert=function(){
+				c.font="40px Arial";
+				c.strokeStyle = "red";
+				c.fillStyle="#f00";
+				c.fillText(gameCtrl.state,canvas.width/2,canvas.height/2);
+			}
+
+
+			var Sprite=function(name,x,y,s,c){
+				this.name=name;
+				this.x=x;
+				this.y=y;
+				this.c=c;
+				this.s=s;//speed
+			}
+			Sprite.prototype.setImg=function(img){
+				this.img=img;
+				this.w=img.width;
+				this.h=img.height;
+			}
+			Sprite.prototype.draw= function() {
+				this.c.drawImage(this.img,this.x,this.y);
+			};
+			Sprite.prototype.up=function(){
+				this.y-=this.s;
+			};
+			Sprite.prototype.down=function(){
+				this.y+=this.s;
+			};
+			Sprite.prototype.left=function(){
+				this.x-=this.s;
+			};
+			Sprite.prototype.right=function(){
+				this.x+=this.s;
+			};
+
+			//code begin
+			var allObjsLength=1;
+			var loadCount=0;
+
+			var ufo=new Sprite("ufo",canvas.width/2,canvas.height/2,5,c);
+
+			image = new Image();
+			image.onload = function(){
+				ufo.setImg(this);
+				loadCount++;
+				ufo.draw();
+			} 
+			image.src = "images/ufo.png";
+
+			var a=new Sprite("ufo2",canvas.width/2,canvas.height/5,5,c);
+			image2 = new Image();
+			image2.onload = function(){
+				a.setImg(this);
+				loadCount++;
+				a.draw();
+			} 
+			image2.src = "images/ufo2.png";
+
+
+
+
+			var game=new Game();
+			var gameCtrl=new GameCtrl();
+
+			gameCtrl.loadGame(game);
+			gameCtrl.setPlayer(ufo);
+
+			
+
+			
+
+		}
+	</script>
+</head>
+<body>
+	<canvas id="myCanvas"></canvas>
+</body>
+</html>
