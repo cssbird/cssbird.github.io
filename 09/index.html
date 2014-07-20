@@ -193,11 +193,13 @@
                     num--;
                     
                     canNext++;
-                    document.getElementById("aliens").style.display="block";
-                    document.getElementById("msg").style.display="none";
+
                     if(num==0){
                         alert("恭喜你，你赢了外星人！");
                         document.getElementById("gameStart").style.display="none";
+                    }else{
+                        document.getElementById("aliens").style.display="block";
+                        document.getElementById("msg").style.display="none";
                     }
                 }else{
                     alert("最多只能拿走两个，请让外星人走棋。");
