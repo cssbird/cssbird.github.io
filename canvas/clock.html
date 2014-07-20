@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>clock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<style type="text/css">
 		*{
 			margin: 0px;
@@ -145,8 +146,8 @@
 
 			        c5.clearRect(0,0,canvas.width,canvas.height);
 					c5.translate(canvas.width/2,canvas.height/2);
-			        c5.rotate(Math.PI*6*(h*60*60)/180);
-			        //c5.rotate(Math.PI*6*30/180);
+			        c5.rotate(Math.PI*6*(h*5)/180);
+			        c5.rotate(Math.PI*6*30/180);
 			        c5.beginPath();
 			        c5.strokeStyle = "black";
 			        c5.lineWidth=3;
