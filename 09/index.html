@@ -136,6 +136,9 @@
         width: 100%;
         height: 80%;
     }
+    #aliens{
+        display: none;
+    }
     .a{
         width: 100%;
         height: 25%;
@@ -172,6 +175,7 @@
         function msg(t){
             document.getElementById("msg").innerHTML=t;
             document.getElementById("msg").style.display="block";
+            document.getElementById("aliens").style.display="none";
         }
         function start(){
             document.getElementById("gameStart").style.display="none";
@@ -188,6 +192,8 @@
                     x.style.display="none";
                     num--;
                     canNext++;
+                    document.getElementById("aliens").style.display="block";
+                    document.getElementById("msg").style.display="none";
                 }else{
                     alert("最多只能拿走两个，请让外星人走棋。");
                 }
