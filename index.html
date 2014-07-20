@@ -1,12 +1,84 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="zh">
 <head>
-	<meta charset="utf8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-	<title>cssbird</title>
-	<link rel="stylesheet" type="text/css" href="flexbox.css">
+	<meta charset="UTF-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <title>cssbird</title>
 	<style>
-		li{
+    *{
+        margin: 0;
+        padding: 0;
+    }
+	body{
+        background: url(09/images/body-bg.png);
+        background-repeat: repeat;
+        width: 100%;
+        height: 100%;
+        position: relative;
+	}
+    #wrap{
+        width:auto;
+        height:auto;
+        top:5%;
+        bottom:5%;
+        left:5%;
+        right:5%;
+        background: url(09/images/cells.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position:fixed;
+        border: solid #208500 5px;
+        border-radius: 10px;
+    }
+    #header{
+        width: 100%;
+        height: 15%;
+    }
+    #main{
+        width: 100%;
+        height: 75%;
+        background: #666;
+    }
+
+    #footer{
+        width: 100%;
+        height: 10%;
+        text-align: center;
+        line-height: 100%;
+    }
+    @media all and (orientation:landscape){
+        #left{
+            width: 70%;
+            height: 100%;
+            background: blue;
+            float: left;
+            clear: left;
+            overflow: scroll;
+        }
+        #right{
+            width: 30%;
+            height: 100%;
+            float: left;
+            clear: none;
+        }
+    }
+    @media all and (orientation:portrait){
+        #left{
+            width: 100%;
+            height: 70%;
+            background: blue;
+            overflow:scroll;
+        }
+        #right{
+            width: 100%;
+            height: 30%;
+        }
+    }
+        li{
 			height:30px;
 			line-height:30px;
 		}
@@ -17,15 +89,19 @@
 			background:#569ce3;
 		}
 	</style>
+	<script>
+		window.onload=function(){
+        }
+	</script>
 </head>
 <body>
-	<header><h1>cssbird</h1></header>
-	<section id="flexContainer">	
-		<nav>
-			
-		</nav>
-		<section id="content">
-			<ol>
+	<div id="wrap">
+        <div id="header">
+            <h2>www.cssbird.com</h2>
+        </div>
+        <div id="main">
+            <div id="left">
+                <ol>
 				<li><a target="_blank" href="tools/base64.html">Conversion of Any File Type to Base64</a></li>
 				<li><a target="_blank" href="game/index.html">game</a></li>
 				<li><a target="_blank" href="ufo.html">ufo game</a></li>
@@ -42,15 +118,14 @@
 				<li><a target="_blank" href="pages/nth-child.html">nth-child</a></li>
 				<li><a target="_blank" href="demo/mp4.html">mp4</a></li>
 				<li><a target="_blank" href="demo/background.html">background</a></li>
-				 
-				
 			</ol>
-		</section>
-		<aside>
-			<h2>@me</h2>
-			<p>http://weibo.com/cssbird</p>
-		</aside>
-	</section>
-	<footer>www.cssbird.com</footer>
+            </div>
+            <div id="right">
+                <h2>@me</h2>
+                <p>http://weibo.com/cssbird</p>
+            </div>
+        </div>
+        <div id="footer">www.cssbird.com</div>
+    </div>
 </body>
 </html>
