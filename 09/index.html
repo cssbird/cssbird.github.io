@@ -54,6 +54,13 @@
         text-align: left;
         margin: 5%;
     }
+    #gameStart #info #playerName{
+        width: 60%;
+        height: auto;
+        margin: 0 auto;
+        font-size: 35px;
+        border-radius: 30px;
+    }
     #gameStart #info button{
         width: 60%;
         height: auto;
@@ -61,6 +68,51 @@
         font-size: 35px;
         padding: 5%;
         border-radius: 30px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+    #gameOver{
+        display: none;
+        width: auto;
+        height: auto;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #555;
+    }
+    #gameOver #overBox{
+        position: fixed;
+        width: auto;
+        height: 80%;
+        top: 10%;
+        bottom: 10%;
+        left: 10%;
+        right: 10%;
+        background: #666;
+        text-align: center;
+    }
+    #gameOver #overBox h2{
+        display: block;
+        width: 100%;
+        height: 25%;
+        font-size: 50px;
+        text-align: center;
+    }
+    #gameOver #overBox p{
+        display: block;
+        width: 100%;
+        height: 25%;
+    }
+    #gameOver #overBox button{
+        display: block;
+        width: 60%;
+        height: 25%;
+        margin: 0 auto;
+        font-size: 20px;
+        border-radius: 20px;
+        cursor: pointer;
     }
     #gameBox{
         width:auto;
@@ -113,7 +165,111 @@
     }
 	</style>
 	<script>
+        var playerName="";
+        var player="user";
+        var num=16;
+        var canNext=0;
+        function msg(t){
+            document.getElementById("msg").innerHTML=t;
+        }
+        function start(){
+            document.getElementById("gameStart").style.display="none";
+            playerName=document.getElementById("playerName").value;
+            if(playerName==""){
+                playerName="匿名玩家";
+            }
+            msg("外星人:"+playerName+",现在请您先走。");
+            
+        }
+        function get(x){
+            if(player=="user"){
+                x.style.display="none";
+                num--;
+                canNext++;
+            }
+        }
 		window.onload=function(){
+            document.getElementById("startGameButton").addEventListener("click",function(){
+                start();
+            },false);
+            var cs=document.getElementsByClassName("c");
+            for(var i=0;i<cs.length;i++){
+                cs[i].style.display="block";
+                cs[i].addEventListener("click",function(){
+                    get(this);
+                },false);
+            }
+            document.getElementById("replay").addEventListener("click",function(){
+                player="user";
+                num=16;
+                canNext=0;
+                //
+                
+                var cs=document.getElementsByClassName("c");
+                for(var i=0;i<cs.length;i++){
+                    cs[i].style.display="block";
+                }
+                //
+                document.getElementById("gameOver").style.display="none";
+            },false);
+            document.getElementById("aliens").addEventListener("click",function(){
+                if(canNext>0){
+                    this.style.display="none";
+                    player="aliens";
+                    msg("外星人：嗯，现在该我走了。");
+                    
+                    setTimeout(function(){
+                        //
+                        var anum=2;
+                        if(num>8){
+                            
+                        }else{
+                            if(num==7){
+                                anum=1;
+                            }
+                            if(num==6){
+                                anum=2;
+                            }
+                            if(num==2){
+                                anum=2;
+                            }
+                            if(num==3){
+                                anum=1;
+                            }
+                            if(num==4){
+                                anum=1;
+                            }
+                            if(num==5){
+                                anum=1;
+                            }
+                        }
+                        for(var x=0;x<anum;x++){
+                            
+                            var cs=document.getElementsByClassName("c");
+                            for(var i=0;i<cs.length;i++){
+                                if(cs[i].style.display=="block"){
+                                    cs[i].style.display="none";
+                                    num--;
+                                    break;
+                                }
+                            }
+                        }
+                        //
+                        if(num==0){
+                            alert("游戏结束");
+                            document.getElementById("gameOver").style.display="block";
+                        }else{
+                            canNext=0;
+                            player="user";
+                            document.getElementById("aliens").style.display="block";
+                            msg("外星人:"+playerName+",现在又该您走了。");
+                        }
+                    },2000);
+                }else{
+                    alert("请触动小球拿走");
+                }
+                
+            },false);
         }
 	</script>
 </head>
@@ -121,7 +277,8 @@
     
 	<div id="gameBox">
         <div id="pan">
-            <h2>每次拿1-2个，最后一个谁拿走，谁就赢了。</h2>
+            <h2 id="msg"></h2>
+            <button id="aliens">我拿好了，该外星人你了。</button>
         </div>
         <div id="objs">
             <div class="a">
@@ -186,7 +343,16 @@
         <div id="info">
             <h2>人类和外星人玩16棋</h2>
             <p>玩法说明：一共16个棋子，你和电脑玩，每次可以拿走1-2枚棋子，最后一枚棋子谁拿走，谁就胜利。</p>
-            <button>开始游戏</button>
+            <input id="playerName" type="text" placeholder="玩家姓名" >
+            <button id="startGameButton">开始游戏</button>
+        </div>
+    </div>
+    <div id="gameOver">
+        <div id="overBox">
+            <h2>游戏结束</h2>
+            <p>不用外挂肯定输</p>
+            <button id="replay">重新开始游戏</button>
+            <p>www.cssbird.com</p>
         </div>
     </div>
 </body>
