@@ -20,6 +20,48 @@
         height: 100%;
         position: relative;
 	}
+    #gameStart{
+        position: fixed;
+        width:auto;
+        height: auto;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background: #ccc;
+    }
+    #gameStart #info{
+        position:absolute;
+        width: 90%;
+        height: 90%;
+        top: 5%;
+        bottom: 5%;
+        left: 5%;
+        right: 5%;
+        background: #666;
+        text-align: center;
+        border-radius:20px;
+    }
+    #gameStart #info h2{
+        font-size: 35px;
+        line-height: 35px;
+        text-align: left;
+        margin: 5%;
+    }
+    #gameStart #info p{
+        font-size: 25px;
+        line-height: 35px;
+        text-align: left;
+        margin: 5%;
+    }
+    #gameStart #info button{
+        width: 60%;
+        height: auto;
+        margin: 0 auto;
+        font-size: 35px;
+        padding: 5%;
+        border-radius: 30px;
+    }
     #gameBox{
         width:auto;
         height:auto;
@@ -41,25 +83,33 @@
     #objs{
         width: 100%;
         height: 80%;
-        background: #666;
     }
     .a{
         width: 100%;
-        height: 30%;
-        background: #ccc;
-        margin: 1% 0px 0px 0px;
+        height: 25%;
         list-style: none;
         display: block;
     }
     .b{
-        width: 31%;
+        width: 25%;
         height: 100%;
-        
-        background-image: url(images/glass_bubble.png);
+        display:block;
+        float:left;
+        clear: none;
+        margin: 0;
+        padding: 0;
+    }
+    .c{
+        width: 70%;
+        height: 70%;
+        background: black;
         background-size: 100% 100%;
-        display:inline-block;
         border-radius: 200%;
-        
+         background: -webkit-radial-gradient(100px 100px, circle, #5cabff, #000);
+  background: -moz-radial-gradient(100px 100px, circle, #5cabff, #000);
+  background: radial-gradient(100px 100px, circle, #5cabff, #000);
+        cursor: pointer;
+        margin: 0 auto;
     }
 	</style>
 	<script>
@@ -71,24 +121,72 @@
     
 	<div id="gameBox">
         <div id="pan">
-            <h2>剩余时间：</h2>
+            <h2>每次拿1-2个，最后一个谁拿走，谁就赢了。</h2>
         </div>
         <div id="objs">
             <div class="a">
-                <div class="b">1</div>
-                <div class="b">2</div>
-                <div class="b">3</div>
+                <div class="b">
+                    <div class="c"></div>
+                </div>
+                <div class="b">
+                    <div class="c"></div>    
+                </div>
+                <div class="b">
+                    <div class="c"></div>
+                </div>
+                <div class="b">
+                    <div class="c"></div>    
+                </div>
             </div>
             <div class="a">
-                <div class="b">1</div>
-                <div class="b">2</div>
-                <div class="b">3</div>
+                <div class="b">
+                    <div class="c"></div>
+                </div>
+                <div class="b">
+                    <div class="c"></div>    
+                </div>
+                <div class="b">
+                    <div class="c"></div>
+                </div>
+                <div class="b">
+                    <div class="c"></div>    
+                </div>
             </div>
             <div class="a">
-                <div class="b">1</div>
-                <div class="b">2</div>
-                <div class="b">3</div>
+                <div class="b">
+                    <div class="c"></div>
+                </div>
+                <div class="b">
+                    <div class="c"></div>    
+                </div>
+                <div class="b">
+                    <div class="c"></div>
+                </div>
+                <div class="b">
+                    <div class="c"></div>    
+                </div>
             </div>
+            <div class="a">
+                <div class="b">
+                    <div class="c"></div>
+                </div>
+                <div class="b">
+                    <div class="c"></div>    
+                </div>
+                <div class="b">
+                    <div class="c"></div>
+                </div>
+                <div class="b">
+                    <div class="c"></div>    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="gameStart">
+        <div id="info">
+            <h2>人类和外星人玩16棋</h2>
+            <p>玩法说明：一共16个棋子，你和电脑玩，每次可以拿走1-2枚棋子，最后一枚棋子谁拿走，谁就胜利。</p>
+            <button>开始游戏</button>
         </div>
     </div>
 </body>
