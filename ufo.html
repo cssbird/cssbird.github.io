@@ -119,20 +119,16 @@
 
 				var data = c.getImageData(SpriteB.x,SpriteB.y,SpriteB.w,SpriteB.h).data;
 
-				c.clearRect(0,0,canvas.width,canvas.height);
-				c.globalCompositeOperation = 'source-over';
-				SpriteB.draw();
-
-				var data2 = c.getImageData(SpriteB.x,SpriteB.y,SpriteB.w,SpriteB.h).data;
+				
 				for(var i = 3; i < data.length; i += 4){
 					gameCtrl.state="";
-					if(data[i]==0&&data2[i]>0){
+					if(data[i]==0&&SpriteB.data2[i]>0){
 						gameCtrl.state="hited ! ";
 						
 						break;
 					}
 				}
-
+				c.globalCompositeOperation = 'source-over';
 				c.clearRect(0,0,canvas.width,canvas.height);
 				gameCtrl.displayScene();
 				SpriteA.draw();
@@ -195,6 +191,10 @@
 				this.img=img;
 				this.w=img.width;
 				this.h=img.height;
+				c.clearRect(0,0,canvas.width,canvas.height);
+				c.globalCompositeOperation = 'source-over';
+				this.draw();
+				this.data = c.getImageData(this.x,this.y,this.w,this.h).data;
 			}
 			Sprite.prototype.draw= function() {
 				this.c.drawImage(this.img,this.x,this.y);
