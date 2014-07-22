@@ -7,7 +7,7 @@
     <meta content="black" name="apple-mobile-web-app-status-bar-style" />
     <meta content="telephone=no" name="format-detection" />
     <meta content="email=no" name="format-detection" />
-<title>Document</title>
+<title>UFO</title>
 	<style>
 	body{
         background: url(images/MoonFullX.jpg);
@@ -215,6 +215,7 @@
 			//code begin
 			var allObjsLength=1;
 			var loadCount=0;
+            var gameLoop=false;//
 
 			var ufo=new Sprite("ufo",canvas.width/2,canvas.height/2,5,c);
 
@@ -241,10 +242,22 @@
 			var game=new Game();
 			var gameCtrl=new GameCtrl();
 
-			gameCtrl.loadGame(game);
-			gameCtrl.setPlayer(ufo);
+			
 
-			gameCtrl.display();
+
+			window.setInterval(function(){
+                if(allObjsLength==loadCount){
+                    //all the res loaded
+                    gameCtrl.loadGame(game);
+                    gameCtrl.setPlayer(ufo);
+                    gameCtrl.display();
+                    gameLoop=true;
+                    allObjsLength=1000;
+                }
+                if(gameLoop){
+                    
+                }
+            },1000/24);
 			
 
 			
