@@ -150,20 +150,20 @@
 			}
 			GameCtrl.prototype.up=function(){
 				this.player.up();
-				this.display();
+				
 			}
 			GameCtrl.prototype.down=function(){
 				this.player.down();
-				this.display();				
+							
 			}
 			GameCtrl.prototype.left=function(){
 				this.player.left();
-				this.display();
+				
 				
 			}
 			GameCtrl.prototype.right=function(){
 				this.player.right();
-				this.display();
+				
 				
 			}
 			GameCtrl.prototype.display=function(){
@@ -253,7 +253,7 @@
                     allObjsLength=1000;
                 }
                 if(gameLoop){
-                    
+                  gameCtrl.display();  
                 }
             },1000/24);
 			
