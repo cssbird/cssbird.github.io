@@ -16,16 +16,14 @@
 </style>
 <script>
 
-
+window.onload = function () {
     var canvas = document.getElementById('myCanvas');
     //canvas.width=window.screen.width;
     //canvas.height=window.screen.height;
     //canvas.width = document.body.scrollWidth;
     //canvas.height = document.body.scrollHeight;
-    //canvas.width = document.body.clientWidth;
-    //canvas.height = document.body.clientHeight;
-    canvas.top = 0;
-    canvas.left = 0;
+    //canvas.top = 0;
+    //canvas.left = 0;
     var c = canvas.getContext('2d');
 
 
@@ -234,6 +232,7 @@
     var loadCount = 0;
     var gameLoop = false;//
 
+    var a = new Sprite("ufo2", canvas.width / 2, canvas.height / 5, 5, c);
     var ufo = new Sprite("ufo", canvas.width / 2, canvas.height / 2, 5, c);
 
     image = new Image();
@@ -243,7 +242,7 @@
     }
     image.src = "images/ufo.png";
 
-    var a = new Sprite("ufo2", canvas.width / 2, canvas.height / 5, 5, c);
+
     image2 = new Image();
     image2.onload = function () {
         a.setImg(this);
@@ -271,7 +270,7 @@
     }, 1000 / 24);
 
 
-
+}
 </script>
 </head>
 <body>
