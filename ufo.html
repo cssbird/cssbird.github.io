@@ -179,7 +179,8 @@ window.onload = function () {
 
     }
     GameCtrl.prototype.display = function () {
-        isHit(a, this.player);
+        a.draw();
+        
     }
     GameCtrl.prototype.displayScene = function () {
 
@@ -262,7 +263,8 @@ window.onload = function () {
             allObjsLength = 1000;
         }
         if (gameLoop) {
-            gameCtrl.display();
+            //gameCtrl.display();
+            isHit(a, this.player);
         }
     }, 1000 / 24);
 
