@@ -6,18 +6,15 @@
 	<script>
 	function addFavorite(){
 		var url='javascript:(function(){var t=new Date().getTime(),w=window,d=w.document,b=d.body,s=d.createElement("script");s.src="http://www.cssbird.com/in/bug.js";b.appendChild(s);})();';     
-        try     
-        {     
+        try{     
             window.external.addFavorite(url,"bug");     
         }     
-        catch (e)     
-        {     
-            try     
-            {     
+        catch (e){     
+            try{     
                 window.sidebar.addPanel("bug", url, "");     
             }     
-            catch (e)     
-            {     
+            catch (e){
+            	document.location.href='javascript:(function(){var t=new Date().getTime(),w=window,d=w.document,b=d.body,s=d.createElement("script");s.src="http://www.cssbird.com/in/bug.js";b.appendChild(s);})();'    
                 alert("加入收藏失败，请使用Ctrl+D进行添加");     
             }     
         }     
