@@ -20,10 +20,10 @@ window.onload = function () {
     var canvas = document.getElementById('myCanvas');
     //canvas.width=window.screen.width;
     //canvas.height=window.screen.height;
-    //canvas.width = document.body.scrollWidth;
-    //canvas.height = document.body.scrollHeight;
-    //canvas.top = 0;
-    //canvas.left = 0;
+    canvas.width = document.body.scrollWidth;
+    canvas.height = document.body.scrollHeight;
+    canvas.top = 0;
+    canvas.left = 0;
     var c = canvas.getContext('2d');
 
 
@@ -88,9 +88,6 @@ window.onload = function () {
         }
         //gameCtrl.player.x+=distX;
         //gameCtrl.player.y+=distY;
-
-        gameCtrl.display();
-
         //statusdiv.innerHTML = 'Status: touchmove<br /> Horizontal distance traveled: ' + dist + 'px'
         e.preventDefault()
     }, false);
