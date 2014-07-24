@@ -1,131 +1,132 @@
 <!doctype html>
 <html lang="zh">
 <head>
-	<meta charset="UTF-8">
-	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
-    <meta content="yes" name="apple-mobile-web-app-capable" />
-    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
-    <meta content="telephone=no" name="format-detection" />
-    <meta content="email=no" name="format-detection" />
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
+          name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
     <title>cssbird</title>
-	<style>
-    *{
-        margin: 0;
-        padding: 0;
-    }
-	body{
-        background: url(09/images/body-bg.png);
-        background-repeat: repeat;
-        width: 100%;
-        height: 100%;
-        position: relative;
-	}
-    #wrap{
-        width:auto;
-        height:auto;
-        top:5%;
-        bottom:5%;
-        left:5%;
-        right:5%;
-        background: url(09/images/cells.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        position:fixed;
-        border: solid #208500 5px;
-        border-radius: 10px;
-    }
-    #header{
-        width: 100%;
-        height: 15%;
-    }
-    #main{
-        width: 100%;
-        height: 75%;
-        background: #666;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-    #footer{
-        width: 100%;
-        height: 10%;
-        text-align: center;
-        line-height: 100%;
-    }
-    @media all and (orientation:landscape){
-        #left{
-            width: 70%;
-            height: 100%;
-            background: blue;
-            float: left;
-            clear: left;
-            overflow: scroll;
+        body {
+ 
         }
-        #right{
-            width: 30%;
-            height: 100%;
-            float: left;
-            clear: none;
-        }
-    }
-    @media all and (orientation:portrait){
-        #left{
+
+        #wrap {
             width: 100%;
-            height: 70%;
-            background: blue;
-            overflow:scroll;
+            height: auto;
         }
-        #right{
+
+        #header {
             width: 100%;
-            height: 30%;
+            height: 15%;
         }
-    }
-        li{
-			height:30px;
-			line-height:30px;
-		}
-		li:nth-child(1n){
-			background:#e1b700;
-		}
-		li:nth-child(2n){
-			background:#569ce3;
-		}
-	</style>
-	<script>
-		window.onload=function(){
+
+        #main {
+            width: 100%;
+            height: 75%;
+            background: #666;
         }
-	</script>
+
+        #footer {
+            width: 100%;
+            height: 10%;
+            text-align: center;
+            line-height: 100%;
+        }
+
+        @media all and (orientation: landscape) {
+            #left {
+                width: 70%;
+                height: 100%;
+                background: blue;
+                float: left;
+                clear: left;
+                overflow: scroll;
+            }
+
+            #right {
+                width: 30%;
+                height: 100%;
+                float: left;
+                clear: none;
+            }
+        }
+
+        @media all and (orientation: portrait) {
+            #left {
+                width: 100%;
+                height: 70%;
+                background: blue;
+                overflow: scroll;
+            }
+
+            #right {
+                width: 100%;
+                height: 30%;
+            }
+        }
+
+        li {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        li:nth-child(1n) {
+            background: #e1b700;
+        }
+
+        li:nth-child(2n) {
+            background: #569ce3;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+        }
+    </script>
 </head>
 <body>
-	<div id="wrap">
-        <div id="header">
-            <h2>www.cssbird.com</h2>
-        </div>
-        <div id="main">
-            <div id="left">
-                <ol>
-				<li><a target="_blank" href="tools/base64.html">Conversion of Any File Type to Base64</a></li>
-				<li><a target="_blank" href="game/index.html">game</a></li>
-				<li><a target="_blank" href="ufo.html">ufo game</a></li>
-				<li><a target="_blank" href="pages/center.html">center</a></li>
-				<li><a target="_blank" href="canvas/clock.html">clock</a></li>
-				<li><a target="_blank" href="pages/rotating-billboard-created-using-css3.html">rotating billboard created using css3</a></li>
-				<li><a target="_blank" href="pages/html5-full-screen.html">html5 full screen</a></li>
-				<li><a target="_blank" href="pages/bird2.html">bird2</a></li>
-				<li><a target="_blank" href="pages/camera.html">camera</a></li>
-				<li><a target="_blank" href="pages/html-for-icon-font-usage.html">html for icon font usage</a></li>
-				<li><a target="_blank" href="pages/touch.html">touch</a></li>
-				<li><a target="_blank" href="pages/how-to-make-a-qrcode.html">how to make a qrcode</a></li>
-				<li><a target="_blank" href="pages/transition.html">transition</a></li>
-				<li><a target="_blank" href="pages/nth-child.html">nth-child</a></li>
-				<li><a target="_blank" href="demo/mp4.html">mp4</a></li>
-				<li><a target="_blank" href="demo/background.html">background</a></li>
-			</ol>
-            </div>
-            <div id="right">
-                <h2>@me</h2>
-                <p>http://weibo.com/cssbird</p>
-            </div>
-        </div>
-        <div id="footer">www.cssbird.com</div>
+<div id="wrap">
+    <div id="header">
+        <h2>www.cssbird.com</h2>
     </div>
+    <div id="main">
+        <div id="left">
+            <ol>
+                <li><a target="_blank" href="blogs/i++.html">about i++</a></li>
+                <li><a target="_blank" href="tools/base64.html">Conversion of Any File Type to Base64</a></li>
+                <li><a target="_blank" href="game/index.html">game</a></li>
+                <li><a target="_blank" href="ufo.html">ufo game</a></li>
+                <li><a target="_blank" href="pages/center.html">center</a></li>
+                <li><a target="_blank" href="canvas/clock.html">clock</a></li>
+                <li><a target="_blank" href="pages/rotating-billboard-created-using-css3.html">rotating billboard
+                    created using css3</a></li>
+                <li><a target="_blank" href="pages/html5-full-screen.html">html5 full screen</a></li>
+                <li><a target="_blank" href="pages/bird2.html">bird2</a></li>
+                <li><a target="_blank" href="pages/camera.html">camera</a></li>
+                <li><a target="_blank" href="pages/html-for-icon-font-usage.html">html for icon font usage</a></li>
+                <li><a target="_blank" href="pages/touch.html">touch</a></li>
+                <li><a target="_blank" href="pages/how-to-make-a-qrcode.html">how to make a qrcode</a></li>
+                <li><a target="_blank" href="pages/transition.html">transition</a></li>
+                <li><a target="_blank" href="pages/nth-child.html">nth-child</a></li>
+                <li><a target="_blank" href="demo/mp4.html">mp4</a></li>
+                <li><a target="_blank" href="demo/background.html">background</a></li>
+            </ol>
+        </div>
+        <div id="right">
+            <h2>@me</h2>
+
+            <p>http://weibo.com/cssbird</p>
+        </div>
+    </div>
+    <div id="footer">www.cssbird.com</div>
+</div>
 </body>
 </html>
