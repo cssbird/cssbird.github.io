@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <style>
+    img{
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        left: 50%;
+    }
+    </style>
+	<script type="text/javascript">
+        var gameloop=true;
+		window.addEventListener("load",function(){
+            var all=0;
+            var v=0;
+            var img=new Image();
+            img.src="db.jpg";
+            img.onload=function(){
+                setInterval(function(){
+                    all++;
+                    
+                    var i=document.createElement("img");
+                    i.src=img.src;
+                    i.top=-50;
+                    i.style.top="-100px";
+                    
+                    //i.style.left=Math.floor(Math.random(50))+window.innerWidth+"px";
+                    i.onclick=function(){
+                        this.style.display="none";
+                        v+=10;
+                    }
+                    document.body.appendChild(i);
+                },3000);
+            }
+            
+            setInterval(function(){
+                if(gameloop){
+                    var images=document.getElementsByTagName("img");
+                    for(var i=0;i<images.length;i++){
+                        images[i].top++;
+                        images[i].style.top=images[i].top+"px";
+                        
+                    }
+                    document.getElementById("v").innerHTML=v;
+                }
+            },1000/32);
+        },false);
+	</script>
+</head>
+<body>
+	<h2 id="v"></h2>
+</body>
+</html>
