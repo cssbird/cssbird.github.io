@@ -106,14 +106,27 @@ window.onload = function () {
          }if(right){
             playerY+=2;
          }
+         
+         var box=document.getElementById("box");
+         
          if(playerX<=0){
             up=down=left=right=false;
             down=true;
          }
-         var box=document.getElementById("box");
+         
+         
          if(playerX+20>=box.scrollHeight){
             up=down=left=right=false;
             up=true;
+         }
+         
+         if(playerY<=0){
+            up=down=left=right=false;
+            left=true;
+         }
+         if(playerY+20>=box.scrollWidth){
+            up=down=left=right=false;
+            right=true;
          }
          player.style.top=playerX+"px";
          player.style.left=playerY+"px";
