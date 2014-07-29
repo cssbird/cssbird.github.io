@@ -62,26 +62,29 @@ window.onload = function () {
         var touchobj = e.changedTouches[0] // reference first touch point for this event
         var distX = parseInt(touchobj.clientX) - startx;
         var distY = parseInt(touchobj.clientY) - starty;
-        
+        var tmp=0;
         if (distX > document.body.scrollWidth/3) {
            up=down=left=right=false;
             right=true;
-            v++;
+            tmp++;
         }
         if (distX < -document.body.scrollWidth/3) {
            up=down=left=right=false;
             left=true;
-            v++;
+            tmp++;
         }
         if (distY > document.body.scrollWidth/3) {
            up=down=left=right=false;
             down=true;
-            v++;
+            tmp++;
         }
         if (distY < -document.body.scrollWidth/3) {
            up=down=left=right=false;
             up=true;
-            v++;
+            tmp++;
+        }
+        if(tmp>0){
+           v++;
         }
         //gameCtrl.player.x+=distX;
         //gameCtrl.player.y+=distY;
