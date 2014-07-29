@@ -77,13 +77,13 @@ window.onload = function () {
         if (distX > document.body.scrollWidth/3) {
             gameCtrl.right();
         }
-        if (distX < document.body.scrollWidth/3) {
+        if (distX < -document.body.scrollWidth/3) {
             gameCtrl.left();
         }
         if (distY > document.body.scrollWidth/3) {
             gameCtrl.down();
         }
-        if (distY < document.body.scrollWidth/3) {
+        if (distY < -document.body.scrollWidth/3) {
             gameCtrl.up();
         }
         //gameCtrl.player.x+=distX;
