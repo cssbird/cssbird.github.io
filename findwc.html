@@ -43,7 +43,7 @@ window.onload = function () {
     var gameloop=false;
     var playerX=10;
     var playerY=10;
-    
+    var v=0;
     var player=document.createElement("div");
     var box=document.getElementById("box");
     player.id="player";
@@ -66,18 +66,22 @@ window.onload = function () {
         if (distX > document.body.scrollWidth/3) {
            up=down=left=right=false;
             right=true;
+            v++;
         }
         if (distX < -document.body.scrollWidth/3) {
            up=down=left=right=false;
             left=true;
+            v++;
         }
         if (distY > document.body.scrollWidth/3) {
            up=down=left=right=false;
             down=true;
+            v++;
         }
         if (distY < -document.body.scrollWidth/3) {
            up=down=left=right=false;
             up=true;
+            v++;
         }
         //gameCtrl.player.x+=distX;
         //gameCtrl.player.y+=distY;
@@ -136,6 +140,7 @@ window.onload = function () {
          }
          player.style.top=playerX+"px";
          player.style.left=playerY+"px";
+         box=document.getElementById("v").innerHTML=v;
       }
     }, 1000 /64);
 
