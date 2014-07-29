@@ -92,8 +92,17 @@ window.onload = function () {
     window.setInterval(function () {
       if(gameloop){
          if(up){
-         
+            playerX--;
+         }if(down){
+            playerX++;
          }
+         if(left){
+            playerY--;
+         }if(right){
+            playerY++;
+         }
+         player.style.top=playerX+"px";
+         player.style.left=playerY+"px";
       }
     }, 1000 / 24);
 
