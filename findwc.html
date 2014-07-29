@@ -63,19 +63,19 @@ window.onload = function () {
         var distX = parseInt(touchobj.clientX) - startx;
         var distY = parseInt(touchobj.clientY) - starty;
         
-        if (distX > 0) {
+        if (distX > 30) {
            up=down=left=right=false;
             right=true;
         }
-        if (distX < 0) {
+        if (distX < 30) {
            up=down=left=right=false;
             left=true;
         }
-        if (distY > 0) {
+        if (distY > 30) {
            up=down=left=right=false;
             down=true;
         }
-        if (distY < 0) {
+        if (distY < 30) {
            up=down=left=right=false;
             up=true;
         }
