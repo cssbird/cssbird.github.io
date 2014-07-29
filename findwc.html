@@ -97,19 +97,23 @@ window.onload = function () {
     window.setInterval(function () {
       if(gameloop){
          if(up){
-            playerX--;
+            playerX-=2;
          }if(down){
-            playerX++;
+            playerX+=2;
          }
          if(left){
-            playerY--;
+            playerY-=2;
          }if(right){
-            playerY++;
+            playerY+=2;
+         }
+         if(playerX<=0){
+            up=down=left=right=false;
+            down=true;
          }
          player.style.top=playerX+"px";
          player.style.left=playerY+"px";
       }
-    }, 1000 / 24);
+    }, 1000 /32);
 
 
 }
