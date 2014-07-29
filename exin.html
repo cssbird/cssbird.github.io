@@ -27,7 +27,9 @@
                     i.src=img.src;
                     i.top=-50;
                     i.style.top="-100px";
-                    i.style.width=Math.floor(Math.random()*100)+30+"px";
+                    var width=Math.floor(Math.random()*80)+30;
+                    i.style.left=Math.floor(Math.random()*document.body.scrollWidth-width)+10+"px";
+                    i.style.width=width+"px";
                     i.style.height=i.style.width;
                     
                     //i.style.left=Math.floor(Math.random(50))+window.innerWidth+"px";
