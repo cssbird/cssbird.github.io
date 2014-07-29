@@ -47,18 +47,7 @@ window.onload = function () {
     var box=document.getElementById("box");
     player.id="player";
     box.appendChild(player);
-    function up(){
-      
-    }
-    function down(){
-      
-    }
-    function left(){
-      
-    }
-    function right(){
-      
-    }
+    var up=false,down=false;left=false;right=false;
     
     window.addEventListener('touchstart', function (e) {
         var touchobj = e.changedTouches[0] // reference first touch point (ie: first finger)
@@ -72,18 +61,18 @@ window.onload = function () {
         var touchobj = e.changedTouches[0] // reference first touch point for this event
         var distX = parseInt(touchobj.clientX) - startx;
         var distY = parseInt(touchobj.clientY) - starty;
-
+        up=down=left=right=false;
         if (distX > 0) {
-            right();
+            right=true;
         }
         if (distX < 0) {
-            left();
+            left=true;
         }
         if (distY > 0) {
-            down();
+            down=true;
         }
         if (distY < 0) {
-            up();
+            up=true;
         }
         //gameCtrl.player.x+=distX;
         //gameCtrl.player.y+=distY;
@@ -102,7 +91,9 @@ window.onload = function () {
     gameloop=true;
     window.setInterval(function () {
       if(gameloop){
-      
+         if(up){
+         
+         }
       }
     }, 1000 / 24);
 
