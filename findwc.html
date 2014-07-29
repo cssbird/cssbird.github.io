@@ -110,6 +110,10 @@ window.onload = function () {
             up=down=left=right=false;
             down=true;
          }
+         if(playerX>=box.scrollHeight){
+            up=down=left=right=false;
+            up=true;
+         }
          player.style.top=playerX+"px";
          player.style.left=playerY+"px";
       }
