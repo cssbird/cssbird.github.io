@@ -111,23 +111,23 @@ window.onload = function () {
          
          if(playerX<=0){
             up=down=left=right=false;
-            down=true;
+            //down=true;
          }
          
          
          if(playerX+20>=box.scrollHeight){
             up=down=left=right=false;
-            up=true;
+            //up=true;
          }
          
          if(playerY<=0){
             up=down=left=right=false;
-            right=true;
+            //right=true;
             
          }
          if(playerY+20>=box.scrollWidth){
             up=down=left=right=false;
-            left=true;
+            //left=true;
          }
          player.style.top=playerX+"px";
          player.style.left=playerY+"px";
