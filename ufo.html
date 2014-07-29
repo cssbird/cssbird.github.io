@@ -74,16 +74,16 @@ window.onload = function () {
         var distX = parseInt(touchobj.clientX) - startx;
         var distY = parseInt(touchobj.clientY) - starty;
 
-        if (distX > 0) {
+        if (distX > document.body.scrollWidth/3) {
             gameCtrl.right();
         }
-        if (distX < 0) {
+        if (distX < document.body.scrollWidth/3) {
             gameCtrl.left();
         }
-        if (distY > 0) {
+        if (distY > document.body.scrollWidth/3) {
             gameCtrl.down();
         }
-        if (distY < 0) {
+        if (distY < document.body.scrollWidth/3) {
             gameCtrl.up();
         }
         //gameCtrl.player.x+=distX;
