@@ -97,14 +97,14 @@ window.onload = function () {
     window.setInterval(function () {
       if(gameloop){
          if(up){
-            playerX-=2;
+            playerX-=3;
          }if(down){
-            playerX+=2;
+            playerX+=3;
          }
          if(left){
-            playerY-=2;
+            playerY-=3;
          }if(right){
-            playerY+=2;
+            playerY+=3;
          }
          
          var box=document.getElementById("box");
@@ -132,7 +132,7 @@ window.onload = function () {
          player.style.top=playerX+"px";
          player.style.left=playerY+"px";
       }
-    }, 1000 /32);
+    }, 1000 /64);
 
 
 }
