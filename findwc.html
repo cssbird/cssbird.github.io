@@ -111,21 +111,25 @@ window.onload = function () {
          
          if(playerX<=0){
             up=down=left=right=false;
+            playerY=box.scrollHeight-20-2;
             //down=true;
          }
          
          
          if(playerX+20>=box.scrollHeight){
             up=down=left=right=false;
+            playerX=2;
             //up=true;
          }
          
          if(playerY<=0){
             up=down=left=right=false;
+            playerY=2;
             //right=true;
             
          }
          if(playerY+20>=box.scrollWidth){
+            playerY=box.scrollWidth-20-2;
             up=down=left=right=false;
             //left=true;
          }
