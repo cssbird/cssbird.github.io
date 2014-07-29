@@ -122,11 +122,12 @@ window.onload = function () {
          
          if(playerY<=0){
             up=down=left=right=false;
-            left=true;
+            right=true;
+            
          }
          if(playerY+20>=box.scrollWidth){
             up=down=left=right=false;
-            right=true;
+            left=true;
          }
          player.style.top=playerX+"px";
          player.style.left=playerY+"px";
