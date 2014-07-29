@@ -34,7 +34,7 @@
         width:20px;
         height:20px;
         background:#ccff66;
-        position: absolute;
+        position: relative;
     }
 </style>
 <script>
@@ -62,17 +62,21 @@ window.onload = function () {
         var touchobj = e.changedTouches[0] // reference first touch point for this event
         var distX = parseInt(touchobj.clientX) - startx;
         var distY = parseInt(touchobj.clientY) - starty;
-        up=down=left=right=false;
+        
         if (distX > 0) {
+           up=down=left=right=false;
             right=true;
         }
         if (distX < 0) {
+           up=down=left=right=false;
             left=true;
         }
         if (distY > 0) {
+           up=down=left=right=false;
             down=true;
         }
         if (distY < 0) {
+           up=down=left=right=false;
             up=true;
         }
         //gameCtrl.player.x+=distX;
