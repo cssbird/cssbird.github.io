@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
+    <title></title>
+    <style>
+    *{
+        margin:0px;
+        padding:0px;
+    }
+@-webkit-keyframes pound {
+	30% { -webkit-transform: scale(2); }
+}
+    @-webkit-keyframes rotate {
+        from { -webkit-transform: rotate(0deg); }
+        to { -webkit-transform: rotate(360deg); }
+    }
+.heart {
+	display: inline-block;
+    margin: 20% auto;
+	font-size: 80px;
+	color: #e00;
+	-webkit-animation: pound 1s infinite,rotate 5s;
+	-webkit-transform-origin: center;
+}
+
+body { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="heart">&#x2665;</div>
+    <div class="heart">&#x2665;</div>
+</body>
+</html>
