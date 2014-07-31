@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
+    <title>乌鸦出品 触动心跳 你不触摸它 它就猥琐了</title>
+    <script>
+        var i=1;
+    window.addEventListener('touchstart', function (e) {
+        var touchobj = e.changedTouches[0] // reference first touch point (ie: first finger)
+        startx = parseInt(touchobj.clientX) // get x position of touch point relative to left edge of browser
+        starty = parseInt(touchobj.clientY) // get x position of touch point relative to left edge of browser
+        //statusdiv.innerHTML = 'Status: touchstart<br /> ClientX: ' + startx + 'px'
+        i+=0.05;
+        e.preventDefault()
+    }, false);
+
+    window.addEventListener('touchmove', function (e) {
+        var touchobj = e.changedTouches[0] // reference first touch point for 
+        e.preventDefault()
+    }, false);
+
+    window.addEventListener('touchend', function (e) {
+        var touchobj = e.changedTouches[0] // reference first touch point for this event
+        //statusdiv.innerHTML = 'Status: touchend<br /> Resting x coordinate: ' + touchobj.clientX + 'px'
+        var distX = parseInt(touchobj.clientX) - startx;
+        var distY = parseInt(touchobj.clientY) - starty;
+        e.preventDefault()
+    }, false);
+        
+        
+        setInterval(function(){
+            if(i<0){
+                document.getElementsByClassName("heart")[0].style.color="#000";
+                document.getElementsByClassName("heart")[1].style.color="#000";
+            }else{
+                document.getElementsByClassName("heart")[0].style.color="#f00";
+                document.getElementsByClassName("heart")[1].style.color="#f00";
+            }
+            document.getElementsByClassName("heart")[0].style.transform="scale("+i+")";
+            document.getElementsByClassName("heart")[1].style.transform="scale("+i+")";
+            i-=0.009;           
+        },1000/24);
+    </script>
+    <style>
+    *{
+        margin:0px;
+        padding:0px;
+    }
+@-webkit-keyframes pound {
+	30% { -webkit-transform: scale(2); }
+}
+    @-webkit-keyframes rotate {
+        from { -webkit-transform: rotate(0deg); }
+        to { -webkit-transform: rotate(360deg); }
+    }
+.heart {
+	display: inline-block;
+    margin: 20% auto;
+	font-size: 80px;
+	color: #e00;
+	-webkit-transform-origin: center;
+}
+
+body { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="heart">&#x2665;</div>
+    <div class="heart">&#x2665;</div>
+</body>
+</html>
