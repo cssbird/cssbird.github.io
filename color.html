@@ -60,7 +60,7 @@
 		</style>
 		<script>
             var blocks=1;
-            var next=1;
+            var next=0;
             var n=30;
             function init(){
                 next++;
@@ -68,6 +68,7 @@
                 if(blocks<64){
                     blocks*=4;
                 }
+                document.getElementById("v").innerHTML="第 "+next+" 关";
                 document.getElementById("canvas").innerHTML="";
                 var r=Math.floor(Math.random() * 253)+1;
                 var g=Math.floor(Math.random() * 253)+1;
