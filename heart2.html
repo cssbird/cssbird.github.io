@@ -30,19 +30,27 @@
 	30% { -webkit-transform: scale(2); }
 }
 .heart{
-    display: inline-block;
-    margin: 20% auto;
+    display:block;
+    margin:0 auto;
 	font-size: 80px;
 	color: #e00;
 }
 .heartOK{
-	display: inline-block;
-    margin: 20% auto;
+	display:block;
+    margin: 0 auto;
 	font-size: 80px;
 	color: #e00;
 	-webkit-transform-origin: center;
     -webkit-animation: pound 1s infinite;
 }
+    #touchheart{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: #f00;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
 		</style>
 		<script>
             var v=0;
@@ -61,7 +69,7 @@ WeixinJSBridge.invoke('shareTimeline', {
 }
 			window.onload = function() {
 				
-				window.addEventListener('touchstart', function (e) {
+				document.getElementById("touchheart").addEventListener('touchstart', function (e) {
         var touchobj = e.changedTouches[0] // reference first touch point (ie: first finger)
         startx = parseInt(touchobj.clientX) // get x position of touch point relative to left edge of browser
         starty = parseInt(touchobj.clientY) // get x position of touch point relative to left edge of browser
@@ -71,7 +79,7 @@ WeixinJSBridge.invoke('shareTimeline', {
         e.preventDefault()
     }, false);
 
-    window.addEventListener('touchmove', function (e) {
+    document.getElementById("touchheart").addEventListener('touchmove', function (e) {
         var touchobj = e.changedTouches[0] // reference first touch point for this event
         
         //gameCtrl.player.x+=distX;
@@ -80,7 +88,7 @@ WeixinJSBridge.invoke('shareTimeline', {
         e.preventDefault()
     }, false);
 
-    window.addEventListener('touchend', function (e) {
+    document.getElementById("touchheart").addEventListener('touchend', function (e) {
         var touchobj = e.changedTouches[0] // reference first touch point for this event
         //statusdiv.innerHTML = 'Status: touchend<br /> Resting x coordinate: ' + touchobj.clientX + 'px'
         var distX = parseInt(touchobj.clientX) - startx;
@@ -115,13 +123,13 @@ WeixinJSBridge.invoke('shareTimeline', {
 		</script>
 	</head>
 	<body>
-		<div id="v"></div>
+		<div id="v">请用手触摸下面的红点不要离开。。。</div>
 		<div id="canvas">
 			<div id="heart" class="heart">&#x2665;</div>
+            <div id="touchheart"></div>
 		</div>
         <div style="margin:10px 0px 0px 0px;line-height:25px;">
             <p>乌鸦出品，我喂自己袋盐。。。</p>
-            <p>请用手指触摸屏幕的任意地方不要离开。</p>
             <p>加我微信：daxiongbeijing2011</p>
             <button ontouchstart="WeiXinShareBtn()">分享</button>
         </div>
