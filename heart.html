@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<meta content="email=no" name="format-detection"/>
+<title>收不离开 心跳不止 乌鸦出品</title>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    body{
+        text-align: center;
+    }
+    #v{
+        width: 100%;
+        font-size: 28px;
+    }
+			#canvas{
+				width:300px;
+				height:200px;
+				margin:0 auto;
+                margin-top: 10px;
+			}
+    @-webkit-keyframes pound {
+	30% { -webkit-transform: scale(2); }
+}
+.heart{
+    display: inline-block;
+    margin: 20% auto;
+	font-size: 80px;
+	color: #e00;
+}
+.heartOK{
+	display: inline-block;
+    margin: 20% auto;
+	font-size: 80px;
+	color: #e00;
+	-webkit-transform-origin: center;
+    -webkit-animation: pound 1s infinite;
+}
+		</style>
+		<script>
+            var v=0;
+            var isheart=false;
+			window.onload = function() {
+				
+				window.addEventListener('touchstart', function (e) {
+        var touchobj = e.changedTouches[0] // reference first touch point (ie: first finger)
+        startx = parseInt(touchobj.clientX) // get x position of touch point relative to left edge of browser
+        starty = parseInt(touchobj.clientY) // get x position of touch point relative to left edge of browser
+        //statusdiv.innerHTML = 'Status: touchstart<br /> ClientX: ' + startx + 'px'
+        isheart=true;
+                    document.getElementById("heart").setAttribute("class","heartOK");
+        e.preventDefault()
+    }, false);
+
+    window.addEventListener('touchmove', function (e) {
+        var touchobj = e.changedTouches[0] // reference first touch point for this event
+        
+        //gameCtrl.player.x+=distX;
+        //gameCtrl.player.y+=distY;
+        //statusdiv.innerHTML = 'Status: touchmove<br /> Horizontal distance traveled: ' + dist + 'px'
+        e.preventDefault()
+    }, false);
+
+    window.addEventListener('touchend', function (e) {
+        var touchobj = e.changedTouches[0] // reference first touch point for this event
+        //statusdiv.innerHTML = 'Status: touchend<br /> Resting x coordinate: ' + touchobj.clientX + 'px'
+        var distX = parseInt(touchobj.clientX) - startx;
+        var distY = parseInt(touchobj.clientY) - starty;
+        var tmp=0;
+        if (distX > document.body.scrollWidth/3) {
+           //right
+        }
+        if (distX < -document.body.scrollWidth/3) {
+           //left
+        }
+        if (distY > document.body.scrollWidth/3) {
+            //down
+        }
+        if (distY < -document.body.scrollWidth/3) {
+           //up
+        }
+        isheart=false;
+                    document.getElementById("heart").setAttribute("class","heart");
+        e.preventDefault()
+    }, false);
+				//
+
+			}
+            setInterval(function(){
+                if(isheart){
+                    document.getElementById("v").innerHTML="我坚持了"+(v++)+"秒";
+                }else{
+                    v=0;
+                }
+            },1000)
+		</script>
+	</head>
+	<body>
+		<div id="v"></div>
+		<div id="canvas">
+			<div id="heart" class="heart">&#x2665;</div>
+		</div>
+        <div style="margin:10px 0px 0px 0px;line-height:25px;">
+            <p>乌鸦出品，我喂自己袋盐。。。</p>
+            <p>加我微信：daxiongbeijing2011</p>
+        </div>
+        
+</body>
+</html>
