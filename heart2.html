@@ -60,7 +60,7 @@ if (typeof WeixinJSBridge == "undefined") {
 alert(" 请先通过微信搜索 daxiongbeijing2011 添加乌鸦为好友，通过微信分享文章 :) ");
 } else {
 WeixinJSBridge.invoke('shareTimeline', {
-"title": "我坚持了"+v+"秒",
+"title": "我坚持了"+v+"秒 手不离开 心跳不止 乌鸦出品",
 "link": "http://www.cssbird.com/heart.html",
 "desc": "手不离开 心跳不止 乌鸦出品"
 //"img_url": "http://www.36kr.com/assets/images/apple-touch-icon.png"
@@ -76,6 +76,7 @@ WeixinJSBridge.invoke('shareTimeline', {
         //statusdiv.innerHTML = 'Status: touchstart<br /> ClientX: ' + startx + 'px'
         isheart=true;
                     document.getElementById("heart").setAttribute("class","heartOK");
+                    document.getElementById("share").style.display="none";
         e.preventDefault()
     }, false);
 
@@ -108,6 +109,7 @@ WeixinJSBridge.invoke('shareTimeline', {
         }
         isheart=false;
                     document.getElementById("heart").setAttribute("class","heart");
+                    document.getElementById("share").style.display="block";
         e.preventDefault()
     }, false);
 				//
@@ -123,15 +125,15 @@ WeixinJSBridge.invoke('shareTimeline', {
 		</script>
 	</head>
 	<body>
-		<div id="v">请用手触摸下面的红点不要离开。。。</div>
+		<div id="v">触摸红点别离开</div>
 		<div id="canvas">
 			<div id="heart" class="heart">&#x2665;</div>
             <div id="touchheart"></div>
 		</div>
-        <div style="margin:10px 0px 0px 0px;line-height:25px;">
+        <div style="margin:10px 0px 0px 0px;line-height:25px;text-align:center">
             <p>乌鸦出品，我喂自己袋盐。。。</p>
             <p>加我微信：daxiongbeijing2011</p>
-            <button ontouchstart="WeiXinShareBtn()">分享</button>
+            <button id="share" style="padding:10px;display:none;margin:0 auto;" ontouchstart="WeiXinShareBtn()">分享到朋友圈</button>
         </div>
         
 </body>
