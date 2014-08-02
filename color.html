@@ -23,7 +23,6 @@
 			#canvas{
 				width:300px;
 				height:300px;
-				background:#ccc;
 				margin:0 auto;
                 margin-top: 10px;
 			}
@@ -45,7 +44,9 @@
                 next++;
                 n-=1;
                 
-                
+                if(next==6){
+                    next=9;
+                }
                 if(blocks<=81){
                     wh=300/(next+1);
                     blocks=(next+1)*(next+1);
