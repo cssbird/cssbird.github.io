@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<focus>
+    <page>
+        <title>cocktail</title>
+        <image>http://demo.marcofolio.net/rotating_billboard/images/cocktail.png</image>
+        <link>http://demo.marcofolio.net/rotating_billboard/images/cocktail.png</link>
+    </page>
+    <page>
+        <title>coffee</title>
+        <image>http://demo.marcofolio.net/rotating_billboard/images/coffee.png</image>
+        <link>http://demo.marcofolio.net/rotating_billboard/images/coffee.png</link>
+    </page>
+    <page>
+        <title>shotglass</title>
+        <image>http://demo.marcofolio.net/rotating_billboard/images/shotglass.png</image>
+        <link>http://demo.marcofolio.net/rotating_billboard/images/shotglass.png</link>
+    </page>
+</focus>
